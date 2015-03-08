@@ -1,0 +1,275 @@
+$controlsBg:  $coronado;
+$controlsFilterBg: $coronadoDark;
+
+.controls{
+  @include clearfix;
+  margin-bottom: flex-gutter(9);
+  background-color: $controlsBg;
+
+  #controls_query, #sitewide_search_query {
+    width: 100%;
+    margin-right: flex-gutter(6);
+    background-color: #fff;
+    @include background(url(image_path("icon_search_med.gif")) 99% center no-repeat);
+  }
+
+  .input {
+    @include pad();
+    @include clearfix;
+  }
+
+  .input > {
+    dd {
+      @include span-columns( 7 of 9 );
+    }
+
+    .filter_state {
+      @include span-columns(2 of 9);
+      @include omega;
+      text-align: center;
+      padding-top: 3px;
+      
+       @include media($mobile) {
+       	font-size: 12px;
+       	line-height: 30px;
+       	padding-top: 0;
+       }
+    }
+  }
+
+  .filter-set {
+    @include span-columns( 6 of 9 );
+    padding-right: flex-gutter(9);
+    
+    @include media($mobile) {
+      width: 100%;
+      margin-right: 0;
+      padding-right: 0;
+    }
+
+    dd {
+      margin-bottom: 16px;
+    }
+
+    select{
+      margin-top: 5px;
+      width: 100%;
+    }
+
+    .date-range{
+      div{
+      }
+    }
+
+    .range-from, .range-to {
+      @include span-columns( 3 of 6 );
+    }
+  }
+
+
+  .filter-results {
+    @include span-columns( 3 of 9);
+    @include omega;
+    text-align: center;
+    height: 100%;
+    
+    @include media($mobile) {
+    	float: none;
+      margin-right: 0;
+    }
+
+    input[type='submit'] {
+      @include background(
+      url(image_path("icon_filter.png")) right center no-repeat,
+      linear-gradient(#2395CE, #0C7EB7)
+      );
+	margin-top: 35px;
+      padding-right: 48px;
+      
+      @include media($mobile) {
+      	margin-top: 0;
+      }
+
+      &:hover {
+        @include background(
+        url(image_path("icon_filter.png")) right center no-repeat,
+        linear-gradient(#2395CE, #0C7EB7 55%)
+        );
+      }
+
+      &:active {
+        @include background(
+        url(image_path("icon_filter.png")) right center no-repeat,
+        linear-gradient(#006Da8, #2395CE 8%, #0C7EB7 55%)
+        );
+      }
+    }
+  }
+}
+
+#filter_toggle{
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:after {
+    @extend %sparklets-icon;
+    @extend %icon-arrow-up;
+    font-size: 10px;
+    padding-left: 10px;
+    color: $scrippsBlue;
+     @include media($mobile) {
+       display: none;	
+     }
+  }
+
+  &.filters_hidden{
+    &:after {
+      @extend %icon-arrow-down;
+      @include media($mobile) {
+       display: none;	
+     }
+    }
+  }
+}
+
+
+#filters {
+  @include clearfix;
+  @include pad;
+  display: none;
+  background: $controlsFilterBg;
+}
+
+#controls_from, #controls_to{
+  width: 100%;
+  border-radius: 3px;
+  background: $white url(image_path("icon_calendar_select.gif")) right center no-repeat;
+
+  &:hover{
+    cursor:pointer;
+  }
+}
+
+// RESULTS
+.resultstats{
+  font-style: italic;
+}
+
+
+%paginated-result-details {
+  @include span-columns(6 of 9);
+
+  @include media($mobile) {
+    width: 100%;
+  }
+}
+
+.paginated-results {
+	opacity: 1;
+	transition: opacity 0.20s linear;
+
+  &.loading {
+    opacity: 0.5;
+  }
+
+  h4{
+    font-weight: normal;
+    font-size: 22px;
+    display: block;
+    padding-top: .5em;
+  }
+
+	ul{
+		border-bottom: $defaultBorder;
+	}
+
+  li {
+    @include clearfix;
+    border-top: $defaultBorder;
+    padding: 15px 0;
+
+    ul{
+      margin-top: 1.3em;
+      border: none;
+
+      li{
+        border: none;
+        min-height: 16px;
+        padding: 0 0 0 20px;
+        margin: 0 0 1em 5px;
+        line-height: 1.2em;
+        background-position: top left;
+        background-repeat: no-repeat;
+
+        &:before {
+          margin-left: -24px;
+          width: 24px;
+          text-align: center;
+          color: $controlsFilterBg;
+        }
+
+        @include media($tablet-and-larger) {
+          width: 180px;
+        }
+
+        &.event-date {
+          @extend .icon-small-date;
+        }
+
+        &.event-range {
+          @extend .icon-small-time;
+        }
+
+        &.event-locations {
+          @extend .icon-location;
+        }
+
+        &.event-fee {
+          @extend .icon-small-cost;
+        }
+      }
+    }
+  }
+
+  .news-item, .event, .blog-post {
+    .event-info, .blog-post-info, .news-item-info {
+      @include span-columns(3 of 9);
+
+      @include media($mobile) {
+        @include span-columns(4);
+      }
+    }
+  }
+
+  .event > p {
+    @extend %paginated-result-details
+  }
+
+
+	figure, video {
+    @include span-columns( 3 of 9 );
+    @include omega;
+    margin-left: flex-gutter(9);
+    float: right;
+    vertical-align: top;
+
+    img {
+      @extend %img-max-width;
+    }
+	}
+
+  .news-item-details, .blog-post-details {
+    @extend %paginated-result-details;
+  }
+}
+
+.results-kicker {
+  @include span-columns( 9 of 9);
+  margin-bottom: 0;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 0.5em;
+}

@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+@import "ie-application";
+
+// for jQuery Placeholder polyfill.
+.placeholder {
+  color: #AAA;
+}
+
+.omni-search{
+  #controls_query {
+    width: 100%;
+    padding: 12px 50px 12px 10px;
+  }
+
+  .omni-search-submit {
+    position: absolute;
+    top: 8px;
+    right: 4px;
+    background-image: url(image_path("icon_search_large.png"));
+  }
+}
+
+#map-nav{
+	ul {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+}
+
+.primary-navigation {
+	.logo{
+    background-image: url(image_path("logo_156.png")) !important;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    padding-right: 5px;
+    width: 163px;
+	}
+
+  .search-box {
+    padding: 0 22px 0 10px;
+  }
+
+  .nav-dropdown {
+    background-image: url(image_path("ie-assets/arrow-down.png"));
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover {
+      background-image: url(image_path("ie-assets/arrow-down-hover.png"));
+    }
+
+    &:before {
+      display: none !important;
+    }
+  }
+
+  .nav-dropdown:hover, .active.root span {
+  }
+
+  .active.root {
+    .nav-dropdown {
+      background-image: url(image_path("ie-assets/arrow-up-hover.png"));
+    }
+  }
+}
+
+.microsite {
+  > header {
+    background-image: image-url('wave-headless.png');
+  }
+
+  .logo {
+    background-image: image-url('logo-white.png') !important;
+  }
+}
+
+.primary-nav-featured {
+  a {
+    margin: 27px 0 18px 17px;
+  }
+}
+
+.breadcrumbs {
+  background-image: image-url('ie-assets/breadcrumb-wave.gif');
+  background-position: center;
+
+  ul {
+    background: none;
+  }
+}
+
+//footer
+//future_bar borders
+.content-header .children#future_bar UL{
+	border-color: $futurebar-border-color;
+}
+
+// IE8 doesn't use margin auto on max-width boxen
+.content-header .title H1{
+	width: $max-width;
+}
+
+.alpha-lister {
+  li {
+    @include span-columns(1 of 26, table);
+    float: none;
+  }
+}
+
+.search-token{
+	background-color: #3DA1D4;
+}
+
+.featured-image, .inline {
+	display: block;
+	max-width: 49%;
+	width: auto;
+}
+
+video embed {
+  height: 282px;
+  width: 502px;
+}
+
+aside video embed {
+  width: 100%;
+  height: auto;
+}
+
+.banner footer a:after {
+  content: '›';
+}
+
+#sharing-toolbar {
+  a {
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 23px;
+
+    &:before {
+      display: none !important;
+    }
+  }
+
+  .sharing-toolbar-email {
+    background-image: url(image_path("ie-assets/ie_sharing_email.gif"));
+  }
+
+  .sharing-toolbar-facebook {
+    background-image: url(image_path("ie-assets/ie_sharing_facebook.gif"));
+  }
+
+  .sharing-toolbar-twitter {
+    background-image: url(image_path("ie-assets/ie_sharing_twitter.gif"));
+  }
+
+  .sharing-toolbar-google {
+    background-image: url(image_path("ie-assets/ie_sharing_googleplus.gif"));
+  }
+  
+  .sharing-toolbar-pinterest {
+    background-image: url(image_path("ie-assets/ie_sharing_pinterest.gif"));
+  }
+
+  .sharing-toolbar-more {
+    background-image: url(image_path("ie-assets/ie_sharing_more.gif"));
+  }
+}

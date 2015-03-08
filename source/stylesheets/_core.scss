@@ -1,0 +1,381 @@
+// resets
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+dd {
+  margin-left: 0;
+}
+
+dl, ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* #Basic Styles
+================================================== */
+body {
+  -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+  -moz-osx-font-smoothing: grayscale;
+  background: $white;
+  color: $bodyColor;
+  font-family: $bodyFontFamily;
+  font-size: $baseFontSize;
+  line-height: 1.85em;
+  margin: 0 auto;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+i, em {
+  font-style:italic;
+}
+
+hr { 
+  border-bottom: $defaultBorder;
+  clear: both;
+  margin: 10px 0 30px;
+  height: 0;
+}
+
+/* #Links
+================================================== */
+a, a:visited {
+  color: $bodyLinkColor;
+  text-decoration: none;
+  outline: none;
+
+  strong.highlight {
+    background-color: $light-orange;
+  }
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+%img-max-width {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.max-width-wrapper {
+  @include outer-container;
+  padding: {
+    left: 10px;
+    right: 10px;
+  }
+
+  @include media($tablet) {
+    padding: {
+      left: 20px;
+      right: 20px;
+    }
+  }
+}
+
+video {
+  @extend %img-max-width;
+}
+
+figure{
+  overflow: hidden;
+
+  img {
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.featured-image, figure.inline {
+  float: left;
+  max-width: 50%;
+  margin: 0 20px 10px 0;
+  padding: 0;
+
+  &.hi-res {
+    max-width: 100%;
+    @include fill-parent;
+  }
+  
+  @include media($mobile) {
+    float: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    width: auto;
+    margin-bottom: -6px;
+  }
+
+  figcaption {
+    margin-top: 0;
+    padding: 10px 15px;
+    font: {
+      size: 11.5px;
+    }
+    background: $washout-aqua;
+
+    p {
+      margin-bottom: 0;
+      font: {
+        size: 11.5px;
+      }
+    }
+  }
+
+  a{
+    padding: 0;
+  }
+}
+
+// This should be removed - tables shouldn't be used for layout
+table .inline {
+  float: none;
+  max-width: none;
+  margin: auto;
+
+  img {
+    max-width: none;
+    margin: auto;
+  }
+}
+
+.grid-results {
+  dt, dd {
+    margin: 0.5em 0;
+    font: {
+      weight: bold;
+    }
+  }
+
+  dt {
+    margin-top: 50px;
+    font-size: 24px;
+    color: $scrippsGreen;
+  }
+
+  dd {
+    font-size: 17px;
+  }
+
+  li {
+    @include clearfix;
+	h4{
+		font-weight: normal;
+		font-size: 22px;
+		display: block;
+	}
+  }
+  figure {
+    @include span-columns(2 of 12);
+
+    img {
+      @extend %img-max-width;
+    }
+  }
+}
+
+.fullsite {
+  .content {
+    padding-bottom: 40px;
+  }
+}
+
+.default > article {
+  .content {
+
+    .byline {
+      @include clearfix;
+      border: none;
+      margin-bottom: 0;
+      padding-bottom: 10px;
+      line-height: 1.2em;
+      
+      // The max-width is here to exclude it from the IE breakpoints override.
+      @include media(max-width 999999px min-width 1200px) {
+        border-bottom: $defaultBorder;
+      }
+
+      ul {
+        margin: .4em 0;
+        font-size: .8em;
+      }
+
+      .release-date {
+        font-weight: bold;
+      }
+
+      li {
+        list-style-type: none;
+        float: left;
+        margin-right: 1em;
+      }
+    }
+
+		.content-inner {
+		  padding-left: 20px;
+		}
+	}
+}
+
+#about-us__executive-team, #services__healing-stories {
+  table {
+    width:100%;
+
+    figure {
+      margin-right:10px;
+    }
+
+    tr {
+      border-bottom: 1px dotted #ccc;
+    }
+    td {
+      padding: 15px 0;
+      margin: 15px 0;
+    }
+  }
+}
+
+/* #Multi colum lists
+================================================== */
+
+.listContainer1 {
+  @include fill-parent;
+  @include pad();
+  @include clearfix;
+
+  .split-columns {
+    @include span-columns(4 of 8);
+
+    li {
+      padding-bottom: 1em;
+    }
+  }
+}
+
+.split-columns {
+  @include columns(2 1em);
+  @include media($mobile){
+    @include columns(1 0);
+  }
+
+  margin-top: 0;
+  list-style-type: none;
+
+  @extend %bulletListSpaced;
+
+  li {
+    padding-left: 1em;
+    break-inside: avoid-column;
+    -webkit-column-break-inside: avoid;
+  }
+}
+
+/* #Events and Classes Styling
+================================================== */
+
+.info {
+  padding: 15px;
+  background-color: $washout-blue;
+  margin-bottom:30px;
+  border-radius: 5px;
+}
+
+table {
+  padding-top: 10px;
+  width:100%;
+
+  th {
+    padding: 5px;
+    text-transform:uppercase;
+    font-weight:bold;
+    font-size: 11px;
+  }
+  td {
+    padding: 5px;
+  }
+
+  .odd {
+    background-color:$very-light-blue;
+  }
+
+  caption {
+    padding: 5px;
+    font-weight: bold;
+    color: $scrippsBlue;
+  }
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+@include media($mobile) {
+  .mobile-hide {
+    @include visually-hidden;
+  }
+}
+
+.description {
+  @include row;
+}
+
+.featured-image + .sparkup > h3 {
+  margin-top: 0;
+}
+
+/* Broadcasting Banner */
+#broadcast {
+  text-align: center;
+  color: white;
+  width: 100%;
+  margin: 0;
+  background: $cinderella-orange;
+  padding: 5px;
+}
+
+/* Hidden MetaData */
+.meta-data {
+  display: none;
+}
+
+.adr {
+  font-style: normal;
+
+  .street-address {
+      display: block;
+  }
+
+  // Hiding address info only used for hcard
+  .geo, .country-name {
+    display: none;
+  }
+
+  abbr {
+    border-bottom: none;
+  }
+}
+
+// ==============
+// = Hilighting =
+// ==============
+
+strong.highlight, mark {
+  background-color: $light-orange;
+  font-weight: bold;
+}

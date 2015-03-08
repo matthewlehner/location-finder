@@ -1,0 +1,90 @@
+/* @override http://localhost/stylesheets/preview_reset.css */
+
+#content #main .preview_placeholder .preview_container * {
+
+	/* reset all css */
+	padding: 0;
+	margin: 0;
+	border: 0;
+	float: none;
+	position: static;
+	background: none;
+	width: auto;
+	height: auto;
+	text-indent: 0;
+	opacity: 1;
+	color: black;
+	font-size: x-small;
+	line-height: 1.4em;
+	font-stretch: normal;
+	letter-spacing: normal;
+	text-align: left;
+	font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+	font-weight: normal;
+}
+
+#content #main .preview_placeholder .preview_container a {
+	color: blue;
+}
+
+#content #main .preview_container a:hover {
+	color: red;
+}
+
+#content #main .preview_placeholder .preview_container h1 {
+	font-size: 3em;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#content #main .preview_placeholder .preview_container h2 {
+	font-size: 2.2em;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+#content #main .preview_placeholder .preview_container h3 {
+	font-size: 1.6em;
+	font-weight: bold;
+	margin-bottom: 6px;
+
+}
+
+#content #main .preview_placeholder .preview_container h4 {
+	font-size: 1.3em;
+	font-weight: bold;
+	margin-bottom: 4px
+}
+
+#content #main .preview_placeholder .preview_container h5 {
+	font-size: 1em;
+	font-weight: bold;
+	margin-bottom: 2px
+}
+
+#content #main .preview_placeholder .preview_container p, #content #main .preview_placeholder .preview_container ol, #content #main .preview_placeholder .preview_container ul {
+	margin: 1em 0 1em 0;
+}
+
+#content #main .preview_placeholder .preview_container ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+	margin-left: 1.4em;
+	margin-bottom: 1em;
+}
+
+#content #main .preview_placeholder .preview_container ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+	margin-left: 1.4em;
+	margin-bottom: 1em;
+
+}
+
+#content #main .preview_placeholder .preview_container strong, #content #main .preview_placeholder .preview_container bold {
+	font-weight: bold;
+}
+
+#content #main .preview_placeholder .preview_container blockquote {
+	margin-left: 2em;
+}

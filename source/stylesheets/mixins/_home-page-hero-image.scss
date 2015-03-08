@@ -1,0 +1,25 @@
+@mixin homepage-hero-image($base-image-name) {
+  $image-name: "marquee/#{$base-image-name}";
+  background-image: image-url("#{$image-name}-ribbon.jpg");
+
+  .hero-image {
+    background-image: image-url("#{$image-name}.jpg");
+  }
+
+  @include hidpi {
+    background-image: image-url("#{$image-name}-ribbon_2x.jpg");
+
+    .hero-image {
+      background-image: image-url("#{$image-name}_2x.jpg");
+    }
+  }
+
+  @include media($mobile) {
+    background-image: image-url('#{$image-name}-mobile-ribbon.jpg');
+
+    .hero-image {
+      background-image: image-url('#{$image-name}-mobile.jpg');
+    }
+  }
+}
+

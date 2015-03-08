@@ -1,0 +1,26 @@
+<%% if (typeof thumbnail !== "undefined" && thumbnail !== null) { %>
+  <figure class='iw-image'>
+    <img src='<%%= thumbnail %>'>
+  </figure>
+  <div class='iw-content iw-thumbnail-present'>
+<%% } else { %>
+  <div class='iw-content'>
+<%% }; %>
+  <div class='iw-heading'>
+    <%% if (typeof url !== "undefined" && url !== null) { %>
+      <a href='<%%= url %>'><%%= name %></a>
+    <%% } else { %>
+      <%%= name %>
+    <%% } %>
+  </div>
+  <div class='iw-address'>
+    <%%= addresses[0]['address'] %><br>
+    <%%= addresses[0]['city'] %>, <%%= addresses[0]['state'] %>
+  </div>
+  <a href='//www.google.com/maps/dir//<%%= name %>,<%%=
+addresses[0]['address'] %>+<%%= addresses[0]['city'] %>+<%%= addresses[0]['state']
+%>,USA'>
+    <%= I18n.t "google_maps_link_text", scope: [:locations,
+:location_browser] %>
+  </a>
+</div>

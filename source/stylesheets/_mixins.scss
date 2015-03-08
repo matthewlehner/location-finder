@@ -1,0 +1,58 @@
+@import "mixins/home-page-hero-image";
+
+@mixin visually-hidden {
+  position: absolute !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  width: 1px !important;
+  margin:-1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+@mixin maxWidth {
+  max-width: $max-width;
+  padding: {
+    left: 10px;
+    right: 10px;
+  }
+}
+
+@mixin pointer-upwards($color, $bottom: 0, $left: 50%, $height: 10px, $width: 10px) {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 0;
+    position: absolute;
+    left: $left;
+    bottom: $bottom;
+    margin-left: -$width;
+    border: {
+      left: $width solid transparent;
+      right: $width solid transparent;
+      bottom: $height solid $color;
+    }
+  }
+}
+
+@mixin pointer-outline-upwards($color, $background, $bottom: 0, $difference: -1px, $left: 50%, $height: 10px, $width: 10px) {
+  @include pointer-upwards($color, $bottom, $left, $height, $width);
+
+  &:after {
+    content: "";
+    display: block;
+    width: 0;
+    position: absolute;
+    left: $left;
+    bottom: $bottom + $difference;
+    margin-left: -$width;
+    border: {
+      left: $width solid transparent;
+      right: $width solid transparent;
+      bottom: $height solid $background;
+    }
+  }
+}

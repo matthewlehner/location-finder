@@ -1,0 +1,123 @@
+.tab-nav {
+  border-bottom: $defaultBorder;
+  margin-top: 20px;
+  padding: 0;
+
+  a {
+    $inactiveTabColor: $bodyLinkColor;
+    @include transition( color 0.2s ease, border-bottom-color 0.2s ease);
+    border-bottom: 4px solid $white;
+    color: $inactiveTabColor;
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 25px;
+    padding: 5px 0;
+
+    &:hover {
+      text-decoration: none;
+      border-bottom-color: $inactiveTabColor;
+    }
+
+    &:focus {
+      text-decoration: none;
+      outline: none;
+    }
+
+    &[aria-selected="true"] {
+      $activeTabColor: $jungleGreen;
+      color: $activeTabColor;
+      border-bottom-color: $activeTabColor;
+    }
+  }
+}
+
+[aria-hidden="true"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.tab-panel, .tab-panel-map-location-list {
+  background-color: $formBgColor;
+
+  dl {
+    margin-bottom: 18px;
+  }
+}
+
+.tab-panel {
+  @include row;
+
+  line-height: 1.65em;
+  margin-bottom: 2em;
+  padding: 20px;
+
+  #map {
+    padding: 0;
+    height: 400px;
+  }
+
+  .type {
+    @extend %tabHeader;
+  }
+}
+
+#overview {
+  h3 {
+    @extend %tabHeader;
+  }
+}
+
+.tab-panel-map {
+  padding: 0;
+}
+
+.map-container {
+  height: 350px;
+}
+
+.tab-column {
+  @include span-columns(4.5 of 9);
+
+  @include media($mobile) {
+    @include fill-parent;
+  }
+}
+
+.tab-panel-map-location-list {
+  li {
+    @include row;
+    border-top: $defaultBorder;
+    padding: 20px 20px 0;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+
+  .adr {
+    margin-bottom: -18px;
+  }
+
+  h3, .adr, .multiple-locations {
+    @extend .tab-column;
+  }
+
+  dt[title="Fax"] + dd, .visiting-hours {
+    @extend .visually-hidden;
+  }
+
+  abbr {
+    border-bottom: none;
+  }
+
+  .type {
+    @extend %tabHeader;
+  }
+}
+
+.tab-content {
+  .tab-panel {
+    display: none;
+  }
+}

@@ -1,0 +1,126 @@
+$mobileNavBg: $cerulean;
+$mobileNavOpenBg: $pacificBlue;
+$mobileNavTrigger: $halfBaked;
+
+$searchCancelText: $shakespeare;
+
+.jPanelMenu-panel {
+  overflow: hidden;
+}
+
+#jPanelMenu-menu {
+  box-shadow: -17px 0 14px -14px rgba(0, 0, 0, 0.19) inset;
+  background: $mobileNavBg;
+
+  a, span {
+    display:block;
+    float: left;
+  }
+
+  a {
+    width: 75%;
+    padding: 10px;
+    color: white;
+  }
+
+  .nav-dropdown {
+    width: 25%;
+    text-align: right;
+    padding: 10px 15px 10px 10px;
+
+    &:hover {
+      &:before {
+        background: none;
+      }
+    }
+
+    &:before {
+      @extend %icon-arrow-future;
+      font-weight: normal;
+      color: rgba(255, 255, 255, 0.6);
+      @include transition(all 0.5s);
+    }
+  }
+
+  .active {
+    .nav-dropdown {
+      &:before {
+        @include transform(rotate(90deg));
+      }
+    }
+  }
+  .root {
+    @include clearfix;
+  }
+
+  .branches {
+    background: $mobileNavOpenBg;
+
+    li {
+      height: 0;
+      overflow: hidden;
+      @include transition-property(height, padding);
+      @include transition-duration(0.5s);
+    }
+  }
+
+  .active {
+    .branches li {
+      height: 45px;
+    }
+  }
+}
+
+.menu-trigger, .search-trigger {
+  display: none;
+}
+
+.jPanelMenu-panel {
+  .menu-trigger, .search-trigger {
+    display: block;
+    position: absolute;
+    border: none;
+    background: none;
+    top: 3px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .menu-trigger {
+    left: 0;
+    padding: 0 0 0 14px;
+
+    .icon-bar {
+      display: block;
+      background: $mobileNavTrigger;
+      width: 22px;
+      height: 4px;
+      margin-top: 4px;
+    }
+  }
+
+  .search-trigger {
+    right: 3px;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2OC4zNzkiIGhlaWdodD0iNzAuODYyIj48Y2lyY2xlIHN0cm9rZT0iIzg3YmJkNSIgc3Ryb2tlLXdpZHRoPSIxMCIgY3g9IjI2Ljk4MyIgY3k9IjI2Ljk4MyIgcj0iMjEuOTgzIiBmaWxsPSJub25lIi8+PGxpbmUgc3Ryb2tlPSIjODdiYmQ1IiBzdHJva2Utd2lkdGg9IjEyIiB4MT0iNDEuMjEyIiB5MT0iNDMuNzMzIiB4Mj0iNjIuNzI0IiB5Mj0iNjUuMjQ1IiBmaWxsPSJub25lIi8+PC9zdmc+) center no-repeat;
+    background-size: 23px 23px;
+  }
+
+  .search-active {
+    .search-trigger {
+      @extend .btn;
+      top: 10px;
+      right: 12px;
+      width: 55px;
+      font-size: 12px;
+
+      &:before {
+        margin-left: -20px;
+        display: block;
+        width: 55px;
+        text-align: center;
+        content: 'Cancel';
+        color: $searchCancelText;
+      }
+    }
+  }
+}

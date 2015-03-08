@@ -1,0 +1,118 @@
+// colors!
+$form-border:        $horizon-blue;
+$form-rules:         $horizon-blue;
+$formBgColor:        $coronado;
+$formBgDarkColor:    $coronadoDark;
+
+$error-flash:        $alert-bg-color;
+$error-flash-text:   $alert-title-text-color;
+$error-flash-border: $alert-title-bg-color;
+// error-flash
+
+/* #Forms
+================================================== */
+
+/*
+* Basic reset / consistent styling for form elements
+*/
+
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="email"],
+textarea,
+select {
+  background: $white;
+  border: 1px solid #B6B6B6;
+  border-radius:3px;
+  box-shadow: #B9B9B9 0 1px 2px inset;
+  height: 30px;
+  line-height: normal;
+  margin: 0;
+  max-width: 100%;
+  outline: none;
+  padding: 5px 12px 3px;
+  vertical-align: baseline;
+}
+
+textarea {
+  min-width: 75%;
+  height: 120px;
+}
+
+select {
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="email"],
+textarea {
+  @include placeholder {
+    color: #999;
+  }
+}
+
+input:focus{
+  outline: none;
+}
+
+.flash.error {
+  border: solid 1px $error-flash-border;
+  padding: 10px ;
+  margin-bottom: 10px;
+  background-color: $error-flash;
+  color: white;
+}
+
+// form colors.
+.sparkup-form-container {
+  background-color: $formBgColor;
+
+  h1{
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 20px;
+  }
+
+  h1:nth-of-type(1) {
+    margin-top: 0;
+  }
+
+  h4{
+    font-size: 14px;
+    font-weight: bold;
+    margin: 15px 0 0 0;
+  }
+  form {
+    background: $formBgColor;
+    padding: 20px;
+  }
+
+  dt {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: solid 1px $form-rules;
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+
+  dd {
+    label {margin-left: 15px;}
+    dt {border: 0;}
+  }
+
+  input[type='submit'] {
+    margin-top: 20px;
+  }
+}
+
+.sparkup-form.simple{
+	padding: 0;
+	background-color: transparent;
+}

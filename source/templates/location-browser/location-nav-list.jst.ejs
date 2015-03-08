@@ -1,0 +1,23 @@
+<% if (parent) { %>
+  <li class="lb-nav-location selected" data-id="<%= parent.id %>">
+    <%= parent.name %>
+  </li>
+<% } else { %>
+  <li class="lb-nav-all">
+    All locations
+  </li>
+<% }; %>
+
+<% if (locations.length > 0) { %>
+  <% _.forEach(locations, function (location) { %>
+    <% if (location.visible) { %>
+      <li class="lb-nav-location<%= (location["descendant_ids"].length > 0) ? " parent" : "" %>">
+        <a class="lb-location-link" href="<%= location.url %>" data-id="<%= location.id %>">
+          <%= location.name %>
+        </a>
+      </li>
+    <% }; %>
+  <% }); %>
+<% } else { %>
+  <%= JST["location-browser/location-info-pane"](parent) %>
+<% }; %>

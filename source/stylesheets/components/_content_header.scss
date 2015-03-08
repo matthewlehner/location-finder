@@ -1,0 +1,207 @@
+$breadcrumbBg: $cerulean;
+
+.content-header {
+  @include default-layout {
+
+    @include media($mobile) {
+      margin-bottom: 10px;
+    }
+  }
+
+  ul, a, a:visited { color: $white; }
+}
+
+.breadcrumbs {
+  background-color: $breadcrumbBg;
+  @include background-image(linear-gradient(90deg, #00bee2 0%, #00BEE2 50%, #00AFDB 50%, #00AFDB 100%));
+  background-position: center;
+
+  @include media($mobile) {
+    display: none;
+  }
+
+  ul{
+    background-color: #00bee2;
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+
+    @extend .max-width-wrapper;
+  }
+
+  li {
+    display: inline-block;
+    line-height: 50px;
+
+    &:before {
+      @extend %sparklets-icon;
+      @extend %icon-arrow-future;
+      font-size: 10px;
+      margin: 0 10px;
+    }
+
+    &:first-child {
+      margin-left: -20px;
+      padding-left: 20px;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      padding-right: 970px;
+      background-image: asset-data-url('breadcrumb_wave.svg');
+      background-position: top right;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.content-title {
+  @include maxWidth;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: -245px 0;
+
+  @include media($tablet-and-larger) {
+    background: none;
+  }
+
+
+  h1 {
+    @include span-columns(8);
+    font-size: 36px;
+    font-weight: normal;
+    line-height: 36px;
+    margin: 0;
+    padding: 30px 0 11px;
+    padding-right: flex-gutter();
+
+    @include default-layout {
+      @include media($tablet-and-larger) {
+        border-right: 1px solid $mercury;
+      }
+    }
+  }
+
+  @include media($mobile) {
+    @include row;
+    background: image-url('breadcrumbs_mobilewave.svg') top right no-repeat $breadcrumbBg;
+    background-size: auto 60px;
+
+    h1 {
+      @include span-columns(4);
+      position: relative;
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      line-height: 20px;
+      padding: 15px 15% 15px 0;
+    }
+  }
+}
+
+@include media($mobile) {
+  .node .content-title {
+    h1 {
+      @include span-columns(4);
+
+      &:before {
+        @include icon-arrow-future;
+        @include sparklets-icon;
+        @include transition-property(transform);
+        @include transition-duration( 0.2s );
+        position: absolute;
+        top: 18px;
+        right: 10px;
+        color: rgba(255, 255, 255, 0.6);
+        text-shadow: none;
+      }
+    }
+  }
+}
+
+#future_bar {
+  @include maxWidth;
+  margin: 0 auto;
+
+  @include media($tablet-and-larger) {
+    ul{
+      @include span-columns(4);
+      background-color: $breadcrumbBg;
+      color: $white;
+      float:right;
+      list-style-type: none;
+      margin-bottom: 20px;
+      padding-top: 10px;
+      padding-bottom: 25px;
+      padding-left: 0;
+    }
+
+    li {
+      font-size: 20px;
+      line-height: 26px;
+      padding: 7px 25px 7px 35px;
+    }
+  }
+
+  @include media($mobile) {
+    background-color: $breadcrumbBg;
+
+    li {
+      padding-left: 15px;
+      overflow: hidden;
+      height: 0;
+      @include transition(height 0.2s);
+
+      &:before {
+        font-size: 18px;
+        font-weight: bold;
+        color: rgba(0,0,0,0.2);
+      }
+    }
+  }
+
+  li {
+    &:before {
+      @extend %sparklets-icon;
+      @extend %icon-arrow-future;
+      font-size: 12px;
+      line-height: 25px;
+      float: left;
+      display: block;
+      width: 14px;
+      margin-left: -14px;
+      
+      @include media($mobile) {
+       color: white; 
+      }
+    }
+  }
+}
+
+.active-futurebar {
+  #future_bar {
+    @include media($mobile) {
+      padding-bottom: 10px;
+    }
+  }
+  
+  .content-title h1:before, .content-title h1:after {
+    @include transform(rotate(90deg));
+  }
+
+  #future_bar li {
+    min-height: 45px;
+    height: auto;
+    line-height: 1.2em;
+  }
+}
+
+// ==========================
+// = Location Content Title =
+// ==========================
+#locations .content-title h1 {
+  width: 100%;
+}

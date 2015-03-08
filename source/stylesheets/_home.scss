@@ -1,0 +1,7 @@
+#home {
+  @include media($mobile) {
+    .affiliated-content {
+      display: none;
+    }
+  }
+}

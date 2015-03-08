@@ -1,0 +1,95 @@
+.addresses {
+  @include row;
+
+  .adr {
+    @include span-columns(9 of 9);
+
+    margin-bottom: flex-gutter(9);
+    font-style: normal;
+  }
+
+  .address {
+    @include span-columns(4.5 of 9);
+  }
+
+  .map-image {
+    display: none;
+  }
+
+  .visiting-hours {
+    @include span-columns(4.5 of 9);
+    line-height: 1.5em;
+
+    ul {
+      @extend %menuList;
+    }
+  }
+
+  .adr, .visiting-hours, .address {
+    @include media($mobile) {
+      @include span-columns(4);
+    }
+  }
+}
+
+.map-image {
+  font-size: 11px;
+
+  @include media($mobile) {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  .outer-map {
+    width: 100%;
+    max-width: 100%;
+    height: 120px;
+    overflow: hidden;
+    position: relative;
+
+      @include media($mobile) {
+       height: 180px;
+       overflow: visible;
+      }
+  }
+
+  .inner-map {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+
+    @include media($mobile) {
+     top: 0;
+     left: 0;
+
+    }
+  }
+
+  .google-map {
+    top: -170px;
+    left: -190px;
+  }
+}
+
+.location-hero-image {
+  img {
+    @extend %img-max-width;
+  }
+}
+
+.location-info {
+  margin-bottom: 2em;
+
+  .location-overview {
+    .locale-name {
+      @extend %tabHeader;
+    }
+  }
+}
+
+.location-amenities {
+  ul {
+    @include columns(2);
+    @extend %bulletList;
+  }
+}

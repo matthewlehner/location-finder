@@ -1,0 +1,84 @@
+$featureHeaderColor: $emperor;
+
+.features {
+  @include clearfix;
+  border-top: $defaultBorder;
+  margin-top: 20px;
+  padding-top: 25px;
+}
+
+.default .features {
+  padding-top: 0;
+  border-top: none;
+}
+
+.feature {
+  margin-bottom: 15px;
+
+  @include default-layout {
+    @include span-columns(4.5 of 9);
+    @include omega(2n);
+    vertical-align: top;
+
+    @include media($mobile) {
+      @include span-columns(4 of 4);
+      min-height: 0;
+    }
+  }
+
+  dl.sparkup-form{
+    background-color: transparent;
+    padding: 0;
+    form{
+      padding: 0;
+    }
+  }
+
+  h2 {
+    font: {
+      size: 22px;
+      weight: normal;
+    }
+    color: $featureHeaderColor;
+  }
+
+  h3 {
+    font: {
+      size: 14px;
+      weight: bold;
+    }
+  }
+
+  figure {
+    display: block;
+    float:none;
+    margin: 10px 0;
+    background: $white;
+    padding: 0;
+    min-height: 0;
+    max-width: 100%;
+    width: auto;
+
+    img {
+      margin: 0 auto;
+      max-width: 100%;
+      vertical-align: middle;
+    }
+
+    &.inline, &.left{
+      float: left;
+      margin: 0 10px 20px 0;
+    }
+
+    &.right{
+      float: right;
+      margin: 0 20px 10px 0;
+    }
+  }
+
+  footer {
+    a {
+      font-weight: bold;
+    }
+  }
+}

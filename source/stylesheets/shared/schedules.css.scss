@@ -1,0 +1,70 @@
+/* Schedule */
+.schedule-recurrence {
+	padding: 1em 0;
+	vertical-align: middle;
+	line-height: 20px;
+	
+}
+
+.schedule-recurrence input {
+	height: 20px;
+	vertical-align: middle;
+	width: 20px;
+	font-size: 14px;
+	text-align: center;
+	margin: 0 3px;
+
+}
+
+#cnt_weekly, #cnt_combined {
+	padding-bottom: 1em;
+	clear: both;
+	float: left;
+}
+#cnt_weekly ul li {
+	float:  left;
+	margin-right: 5px
+}
+
+#cnt_weekly ul li a, #cnt_combined ul li a  {
+	font-size: 10px;
+	line-height: 20px;
+	width: 20px;
+	text-align: center;
+	height:  20px;
+	display: block;
+	padding: 5px;
+	border:  1px solid grey;
+	text-decoration: none;
+	color: grey;
+	margin-bottom: 5px;
+}
+
+#cnt_weekly ul li a.active, #cnt_combined ul li a.active {
+	background: #ceebf9;
+}
+
+#cnt_combined ul li {
+	float:  left;
+	margin-right: 5px
+}
+
+#cnt_combined ul {
+	width: 260px;
+}
+
+#cnt_combined ul#cnt_yearly {
+	width: 180px;
+}
+
+#sched-contexts {
+	clear: both;
+}
+
+#cnt_weekly ul:after, #cnt_combined ul:after, #sched-contexts:after {
+	content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}

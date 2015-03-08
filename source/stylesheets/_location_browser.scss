@@ -1,0 +1,280 @@
+$noResultsBgColor: rgba(0,0,0,0.6);
+$selectedBgColor: $formBgColor;
+$hoverBgColor: $scrippsBlue;
+$topNavBgColor: #B8E9FC;
+
+#location-browser {
+  @include span-columns(12);
+  height: 544px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+
+  .no-results {
+    padding-top: 200px;
+    top: 0;
+    left: 0;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    background: $noResultsBgColor;
+    color: $white;
+    text-align: center;
+    z-index: 1000;
+    font-size: 20px;
+
+    button{
+      display: block;
+      font-size: 18px;
+      height: auto;
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 5px 20px;
+      text-shadow: none;
+
+      @extend %submit;
+    }
+  }
+}
+
+.lb-nav {
+  @include span-columns(4, block-collapse);
+  height: 100%;
+  overflow-y: scroll;
+
+  @include media($mobile) {
+    @include span-columns(4);
+  }
+
+  a, .selected, .lb-nav-all, .lb-location-info-pane {
+    display: block;
+    padding: 20px 26px 20px 20px;
+    position: relative;
+  }
+}
+
+.lb-nav-all {
+  background-color: $topNavBgColor;
+}
+
+.lb-nav-location {
+  color: $bodyLinkColor;
+
+  a, a:hover {
+    text-decoration: none;
+    outline: none;
+  }
+
+  a:focus {
+    outline: none;
+  }
+
+  a:hover {
+    background-color: $greyLight;
+  }
+
+  &.hidden-li {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+  }
+
+  &.parent {
+    > a:before {
+      @extend %sparklets-icon;
+      @include icon-arrow-future;
+
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      margin-top: -6px;
+      font-size: 12px;
+    }
+  }
+
+  &.selected {
+    background-color: $topNavBgColor;
+    cursor: pointer;
+    padding-left: 40px;
+
+    &:before {
+      @extend %sparklets-icon;
+      @include icon-arrow-past;
+
+      font-size: 12px;
+      left: 20px;
+      margin-top: -7px;
+      position: absolute;
+      right: auto;
+      top: 50%;
+    }
+  }
+}
+
+.lb-search {
+  @include span-columns(8);
+
+  @include media($mobile) {
+   display: none;
+  }
+
+  @include transition(top 0.2s ease-out);
+
+  background: transparentize(#ACDEF5, 0.1);
+  margin-right: 0;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+
+  &.lb-search-hidden {
+    top: -70px;
+  }
+}
+
+.lb-location-input {
+  @include span-columns(6 of 8);
+
+  label {
+    @include span-columns(1 of 6);
+  }
+
+  input {
+    @include span-columns(5 of 6);
+    border: none;
+    box-shadow: none;
+    line-height: 1.85em;
+    outline: none;
+    padding: 0;
+    background: none;
+  }
+}
+
+.lb-search-controls {
+  @include span-columns(2 of 8);
+  @include omega;
+  text-align: right;
+}
+
+%lb-controls-button {
+  @include hide-text;
+
+  background: none;
+  display: inline-block;
+  float: right;
+  margin-left: 5px;
+  padding: 0;
+  width: 29px;
+  height: 29px;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:before{
+    background: #7DC2E4;
+    border-radius: 3px;
+    color: #307AAD;
+    display: block;
+    width: 29px;
+    height: 29px;
+    text-align: center;
+  }
+}
+
+.lb-clear-search {
+  @extend %lb-controls-button;
+
+  &:before {
+    content: '\d7';
+    font-size: 26px;
+    line-height: 29px;
+  }
+}
+
+.lb-controls-gps {
+  @extend %lb-controls-button;
+
+  &:before {
+    line-height: 30px;
+    @extend %sparklets-icon;
+    @include icon-gps;
+  }
+}
+
+.lb-controls-settings {
+  @extend %lb-controls-button;
+
+  &:before {
+    line-height: 30px;
+    @extend %sparklets-icon;
+    @include icon-gear-preferences;
+  }
+}
+
+#lb-map {
+  @include span-columns(8);
+  @include omega;
+
+  @include media($mobile) {
+   display: none;
+  }
+
+
+  height:100%;
+
+  div {
+    box-sizing: content-box;
+  }
+}
+
+.iw-image {
+  float: left;
+  max-height: 110px;
+  overflow: hidden;
+  padding-right: 10px;
+  width: 120px;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.iw-content {
+  font-weight: normal;
+  font-size: 14px;
+
+  &.iw-thumbnail-present {
+    margin-left: 120px;
+  }
+}
+
+.iw-heading, .iw-address {
+  margin-bottom: 5px;
+}
+
+.iw-address {
+  color: $grey;
+  line-height: 1.2em;
+}
+
+.lb-location-info-pane {
+  color: $bodyColor;
+
+  .adr, .phone-number {
+    margin: 0 0 1em;
+    line-height: 1;
+  }
+
+  a {
+    padding: 0;
+
+    &:hover {
+      background: none;
+      text-decoration: underline;
+    }
+  }
+}

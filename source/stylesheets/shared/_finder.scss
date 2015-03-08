@@ -1,0 +1,329 @@
+#physicians_index {
+  form {
+    @include pad();
+    background-color: $formBgColor;
+    text-align: center;
+    label {
+      white-space: nowrap;
+      margin-right: 2%;
+    }
+    input[type='text'] {
+      width: 60%;
+    }
+  }
+
+  @include media($mobile) {
+    form, .alphabetical-filters {
+      display: none;
+    }
+  }
+
+  .filters {
+    margin-top: 20px;
+    border-bottom: $defaultBorder;
+
+    section {
+      display: inline-block;
+      width: 30%;
+      padding:0;
+      margin-left:2%;
+      vertical-align: top;
+
+      h2 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        min-height: 160px;
+      }
+    }
+  }
+
+  .current_tags {
+    line-height: 30px;
+    padding: 20px 0;
+
+    .search-token {
+      @include background(linear-gradient(#2395CE, #0C7EB7));
+      display: inline-block;
+      height: 24px;
+      line-height: 24px;
+      padding: 0 0 0 10px;
+      color: #fff;
+      cursor: default;
+    }
+
+    .search-token a{
+      display: inline-block;
+      color: $very-light-blue;
+      font-size: 12px;
+      line-height: 23px;
+      height: 23px;
+      font-weight: bold;
+      padding: 0 8px;
+      margin: 0 0 0 3px;
+      border-left: 1px solid $midnight-blue;
+
+      &:hover{
+        background-color: $midnight-blue;
+        text-decoration: none;
+      }
+    }
+
+    .search-token:hover{
+      @include background(linear-gradient(#2395CE, #0C7EB7));
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+
+  .alphabetical-filters{
+    @extend .max-width-wrapper;
+    padding: 20px 0 5px 0;
+    background-color: $formBgColor;
+    border-top: 1px solid #cbe0ec;
+
+    header{
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+      text-align: center;
+
+      h4{
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        margin: 0 15px;
+        padding:  5px 20px 20px 0;
+        line-height: 16px;
+        font-weight: normal;
+        color: $darker-cyan;
+        background: transparent url(image_path("primary-nav-drop-arrow.svg")) right 6px no-repeat;
+
+        &:hover{
+          text-decoration: underline;
+        }
+
+        &.active{
+          @include pointer-upwards($formBgDarkColor);
+          background: transparent url(image_path("primary_nav-up-arrow.png")) right 6px no-repeat;
+        }
+      }
+    }
+
+    section{
+      margin-bottom: 5px;
+      padding: 20px;
+      @extend .max-width-wrapper;
+      display: none;
+      width: 100%;
+      background-color: $formBgDarkColor;
+    }
+
+    .listContainer1 {
+      padding: 0;
+    }
+    .listCol1,
+    .listCol2,
+    .listCol3{
+      @include span-columns(3 of 9);
+
+      li {
+        margin-bottom: .5em;
+        input{
+          float: left;
+          margin-top: .2em;
+        }
+
+        label{
+          display: block;
+          padding-left: 16px;
+          font-size: 12px;
+          line-height: 1.5em;
+        }
+      }
+    }
+
+    .listCol3{
+      @include omega;
+    }
+  }
+
+  .main {
+    margin-top: 20px;
+    position: relative;
+
+    .count {
+      font-style: italic;
+      padding: 5px 0;
+      border-top: $defaultBorder;
+      border-bottom: $defaultBorder;
+    }
+
+    .clear_filters{
+      position: absolute;
+      display: inline-block;
+      right: 0;
+    }
+
+    header{
+      border: 0;
+      padding: 5px;
+      padding-bottom: 15px;
+      border-top: $defaultBorder;
+      border-bottom: $defaultBorder;
+      background: transparent;
+    }
+
+    .current_tags {
+      width: 75%;
+      padding-left: 20px;
+      display: inline-block;
+
+      h4 {
+        display: inline-block;
+        color: $slateGrey;
+        font-weight: bold;
+      }
+
+      ul {
+        display: inline-block;
+      }
+
+      li {
+        display: inline-block;
+        background-color: $very-light-blue;
+        padding: 5px 5px;
+        margin-right: 5px;
+      }
+
+      a{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+.physicians-list {
+  .physician {
+    @include row();
+    position: relative;
+    border-bottom: $defaultBorder;
+    margin:0;
+    padding: 10px 0 15px 0;
+    width: 100%;
+
+    &:hover {
+      background-color: $formBgColor;
+      cursor: pointer;
+
+      .accepting{
+        background-image:url(image_path("docicons_newpatients_over.gif"));
+      }
+      .has_video{
+        background-image:url(image_path("docicons_video_over.gif"));
+      }
+    }
+  }
+
+  figcaption{
+    position: absolute;
+    left: 65px;
+    top: 10px;
+    padding: 0;
+    margin: 0;
+    text-indent:0;
+  }
+
+  h2{
+    font-size: 1.3em;
+    font-weight: normal;
+    letter-spacing: 0px;
+    margin-top: 0;
+  }
+
+  .accepting, .has_video {
+    font-size: 12px;
+    font-weight: normal;
+    text-indent: 20px;
+    background: transparent no-repeat left center;
+  }
+
+  .accepting{
+    background-image:url(image_path("docicons_newpatients.gif"));
+  }
+
+  .has_video{
+    background-image:url(image_path("docicons_video.gif"));
+  }
+
+  img{
+    margin-top: 6px;
+    width: 46px;
+    height: auto;
+  }
+
+  .specialties,
+  .locations {
+    @include media($tablet-and-larger) {
+      @include span-columns(3.5);
+    }
+  }
+
+  dt{
+    @extend .results-kicker;
+  }
+
+  @include media($mobile) {
+    padding-bottom: 5px;
+
+    .accepting, .has_video {
+      display: none;
+    }
+
+    img {
+      margin-top: 0;
+      width: 26px;
+      min-height: 40px;
+    }
+
+    dt, .locations {
+      display: none;
+    }
+
+    .specialties {
+      position: absolute;
+      top: 35px;
+      left: 65px;
+
+      dt {
+        display: none;
+      }
+    }
+
+    dd {
+      display: inline-block;
+
+      &:last-child:after {
+        content: '';
+      }
+
+      &:after {
+        content: ',';
+      }
+    }
+  }
+
+  dd{
+    line-height: 1.5em;
+    margin-bottom: .75em;
+  }
+
+  figure{
+    @include span-columns(5);
+    margin: 0;
+    padding: 0;
+  }
+}

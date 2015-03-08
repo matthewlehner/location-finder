@@ -1,0 +1,110 @@
+section.recipe {
+  @include span-columns(5 of 9);
+  @include media($mobile) {
+    @include span-columns(4);
+  }
+}
+
+.nutrition-facts {
+  @include span-columns(4 of 9);
+  @include media($mobile) {
+    @include span-columns(4);
+  }
+
+  border: 1px solid black;
+  font-size: 14px;
+  margin-top: 12px;
+  padding: 10px;
+
+  h1 {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0 0 4px;
+    text-align: left;
+  }
+
+  h2 {
+    border-bottom: 10px solid black;
+    font-size:14px;
+    font-family: inherit;
+    font-weight:normal;
+    margin: 0;
+  }
+
+  h3 {
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    margin: 7px 0 3px;
+    font-family: inherit;
+  }
+
+  ul {
+    @include clearfix;
+    margin:0;
+    padding:0;
+    font-weight:bold;
+
+    li {
+      list-style-type: none;
+      border-bottom: 1px solid black;
+
+      dt, .daily-value-content {
+        float:left;
+        padding-right:4px;
+      }
+
+      .daily-value-content {
+        font-weight: normal;
+      }
+
+      dl {
+        @include clearfix;
+      }
+
+      .daily-percentage {
+        float: right;
+        font-weight: normal;
+      }
+    }
+
+    .indented {
+      padding-left: 15px;
+      font-weight:normal;
+    }
+
+  }
+
+  .supplements {
+    border-bottom: $defaultBorder;
+
+    tr, td {
+      background-color: $white;
+      padding:0;
+    }
+
+  }
+
+  footer {
+    margin-top:5px;
+    font-size: 12px;
+    line-height:1.2em;
+    color: black;
+  }
+}
+
+.nutrition-legend {
+  @include clearfix;
+  font-weight:bold;
+
+  dt, dd {
+    float: left;
+    padding-right: 4px;
+  }
+
+  .daily-value {
+    border-top: 2px solid black;
+    text-align:right;
+    width:100%;
+    padding:0;
+  }
+}

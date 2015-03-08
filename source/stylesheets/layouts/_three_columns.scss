@@ -1,0 +1,60 @@
+@mixin three-column-layout {
+  .three-columns & {
+    @content;
+  }
+}
+
+.three-columns {
+  .children {
+    ul {
+      margin-left: flex-gutter();
+    }
+  }
+
+  .container {
+    @extend .max-width-wrapper;
+
+    .content {
+      @include span-columns(12);
+
+      @include media($mobile) {
+        @include span-columns(4);
+      }
+    }
+  }
+
+  .intro-wrapper {
+    @extend .max-width-wrapper;
+    @include media($mobile) {
+      margin-bottom: 20px;
+
+      .intro {
+        display: none;
+      }
+    }
+
+    .intro {
+      border-bottom: $defaultBorder;
+
+      margin: {
+        bottom: 20px;
+        left: auto;
+        right: auto;
+      }
+      padding: {
+        top: 10px;
+        bottom: 10px;
+      }
+
+      p, h4 {
+        display: inline;
+        font-size: 20px;
+        line-height: 1.65em;
+      }
+    }
+  }
+
+  .service-navigation {
+    margin-top:20px;
+  }
+}

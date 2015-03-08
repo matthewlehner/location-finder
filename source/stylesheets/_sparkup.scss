@@ -1,0 +1,10 @@
+.sparkup, .feature, .split-columns {
+  ul {
+    @extend %bulletListSpaced;
+  }
+
+  p {
+    margin-top: 0;
+  }
+}
+

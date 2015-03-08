@@ -1,0 +1,14 @@
+<h4><%= I18n.t "address", scope: [:locations, :location_browser] %></h4>
+<p class="adr" itemprop="address" itemscope="itemscope"
+itemtype="http://data-vocabulary.org/Address/">
+  <span class="street-address" itemprop="street-address"><%%= address %></span><br>
+
+  <span class="locality" itemprop="locality"><%%= city %></span>,
+  <abbr class="region" itemprop="region" title="<%%= full_state_name %>"><%%= state %></abbr>
+  <span class="postal-code" itemprop="postal-code"><%%= postal_code %></span>
+  <abbr class="country-name" itemprop="country-name" title="<%%= full_country_name %>"><%%= country %></abbr>
+</p>
+<%% if (typeof(phone_number) !== "undefined") { %>
+<h4><%= I18n.t "phone", scope: [:locations, :location_browser] %></h4>
+<span class="phone-number value" itemprop="tel" title="<%%= phone_number %>"><%%= phone_number %></span>
+<%% }; %>

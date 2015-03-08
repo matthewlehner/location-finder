@@ -1,0 +1,62 @@
+$footerBgColor: $porcelain;
+
+.microsite{
+  > header {
+    height: 120px;
+    margin-bottom: 20px;
+    background-image: asset-data-url('wave-headless.svg');
+    background-repeat: no-repeat;
+    background-color: $cerulean;
+  }
+
+  .secondary-navigation{
+    display: none;
+  }
+
+  .primary-navigation{
+    @extend .max-width-wrapper;
+    height: 120px;
+
+    .logo {
+      margin-top: 35px;
+      margin-bottom: 35px;
+      height: 50px;
+      background-image: image-url('logo-white.svg');
+      background-size: 157px 45px;
+      width: 100%;
+     }
+  }
+
+  .site-footer {
+    background-color: $footerBgColor;
+
+    .sub {
+      @include outer-container;
+      font-size: 14px;
+      border-top: none;
+    }
+  }
+
+
+  .microsite-content-header {
+    @extend .max-width-wrapper;
+
+    > h1{
+      font-size: 36px;
+      line-height: 36px;
+      letter-spacing: -0.05em;
+      margin: 10px 0;
+      font-weight: normal;
+    }
+  }
+
+  .container .content{
+    padding-top: 0;
+  }
+
+  video{
+    float: left;
+    padding-top: 5px;
+    margin: 0 20px 20px 0;
+  }
+}

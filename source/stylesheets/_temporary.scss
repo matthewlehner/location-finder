@@ -1,0 +1,13 @@
+#about-us__executive-team{
+	// need better sparkup code in this instance but it gets special treatment for now
+	p{
+		@include clearfix;
+	}
+}
+
+iframe[name="google_conversion_frame"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  background-position: 300px 13px;
+}

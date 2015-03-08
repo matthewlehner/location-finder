@@ -1,0 +1,132 @@
+// ==========
+// = Colors =
+// ==========
+
+// =====================
+// = Color Definitions =
+// =====================
+
+// Scripps official brand/logo colors
+
+$scrippsBlue:    #005cab; // PMS 2728C
+$scrippsGreen:   #00a389; // PMS 334C
+$scrippsOrange:  #f37321; // PMS 1665C
+
+$porcelain:      #ecf1f0; // light grey blue background
+$denim:          #0d77ad; // Dark blue nav color
+$silver:         #CACACA; // input border color
+$halfBaked:      #87bbd5; // input placeholder color
+
+$mercury:        #e1e1e1;
+$mineShaft:      #363636;
+$emperor:        #555555;
+$gothic:         #76909d;
+
+$jungleGreen:    #2aa589;
+$matisse:        #187cae;
+$shakespeare:    #3da1d4;
+$cerulean:       #00aedb;
+$pacificBlue:    #029bc5;
+$morningGlory:   #9BC8DF;
+
+$coronado:       #DEF2FB;
+$coronadoDark:   #BDE5f7;
+
+$grey:           #777;
+$greyLight:      #EDEDED;
+
+// Body styles
+$bodyColor: $emperor;
+$bodyLinkColor: $matisse;
+
+// Site Header
+$primaryNavColor: $bodyLinkColor;
+$secondaryNavColor: $denim;
+
+$formBgColor: $coronado;
+$formBgDarkColor: $coronadoDark;
+// Home banner
+
+// OmniSearch
+$omniBorder: transparentize($gothic, 0.5);
+
+// Site Footer
+$linkWater: #d8ecf5;
+
+$nav-hover: #0d77ad;
+
+$white: #fff;
+
+$scripps-green-shade: #027d6a; // darker color for sidebar borders & highlights
+$scripps-green-tint: #40bba7; // lighter color for breadcrumbs/sidebar
+
+$slateGrey: #333; // body text
+$mediumGrey: #666;
+$wispGrey: #e5e5e5; // hard rule lines
+$touchOfGrey: #cbcbcb;
+
+$cinderella-orange: #F28946; // background for alerts, tint of scripps orange
+$light-orange: #FDEADE;
+$darker-orange: #c85002; // for alert text
+
+$medium-cyan: #3da1d4; // topmost header background
+$darker-cyan: #187cae; // for linked text
+$new-cyan: #0D8AC9;
+
+$very-light-blue: #f0f9fe; // background/border color for search forms
+$light-blue: #d6e5eb; // border for very-light-blue backgrounds
+$washout-blue: #e2f2ff; // background for upper footer & sidebar groups
+$tropical-blue: #cfe7f7; // basically just for upper footer rules
+$horizon-blue: #b7ddf4; // background for lower footer
+$midnight-blue: #0c6896; // background for dropdown menus
+
+$buffet-brown: #4d4823;
+
+$nav-background-blue: $midnight-blue;
+$washout-aqua: #E7F5F8;
+
+// =================
+// = Color Grammar =
+// =================
+
+// metanav
+$metanav-bg-color: $medium-cyan;
+$metanav-link-color: $white;
+
+// main nav
+$mainnav-bg-color: $white;
+
+// responsive
+$responsive-menu-trigger-bg-color: $white;
+$responsive-menu-border-color: $medium-cyan;
+
+// sidebar / futurebar
+$futurebar-bg-color: $scripps-green-tint;
+$futurebar-border-color: #019f86;
+$futurebar-link-color: $white;
+
+$related-content-bg-color: $washout-blue;
+$related-group-bg-color: $white;
+$related-listborder-color: $washout-blue;
+
+// page content
+$headline-text-color: $white;
+$body-headline-color: $scripps-green-shade;
+
+$alert-bg-color: $cinderella-orange;
+$alert-title-bg-color: $scrippsOrange;
+$alert-title-text-color: $darker-orange;
+
+// footer
+$footer-giving-bg-color: $white;
+$footer-sitemap-bg-color: $washout-blue;
+$footer-sitemap-rule-color: $tropical-blue;
+$footer-sitemap-text-color: $darker-cyan;
+$footer-sub-bg-color: $horizon-blue;
+$footer-sub-text-color: $darker-cyan;
+
+// landing pages
+
+$landing-intro-bg-color: $washout-blue;
+
+$defaultBorder: 1px solid $wispGrey;

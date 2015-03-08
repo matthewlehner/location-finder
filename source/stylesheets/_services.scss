@@ -1,0 +1,39 @@
+.service-navigation {
+  .split-columns {
+    @include fill-parent;
+    
+    @include media($tablet-and-larger){
+      @include column-count(2);
+      @include column-gap(3em);
+    }
+
+    li {
+      margin-bottom: 1em;
+    }
+  }
+
+  .listContainer1 {
+    padding: 0;
+  }
+
+  .listCol1,
+  .listCol2 {
+    @include media($tablet-and-larger){
+      @include span-columns(4.5 of 9);
+    }
+  }
+
+  .listCol2{
+    @include media($tablet-and-larger){
+      @include omega;
+    }
+  }
+}
+
+.services-tabs {
+  li {
+    @extend %carouselHeader;
+  }
+
+  border-bottom: $defaultBorder;
+}

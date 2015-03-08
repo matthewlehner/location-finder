@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title><%= current_page.data.title || "The Middleman" %></title>
+
+  <!--[if !(lte IE 8)]><!-->
+    <%= stylesheet_link_tag 'application' %>
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+    <%= stylesheet_link_tag 'ie' %>
+  <![endif]-->
+
+  <%= javascript_include_tag 'application' %>
+</head>
+<body class="three-columns fullsite" id="locations">
+  <%= partial "navigation" %>
+  <article class="leaf" id="locations_index">
+    <%= partial "content_header" %>
+    <%# <%= yield :intro %>
+    <div class="container">
+      <div class="content">
+        <%= yield %>
+      </div>
+    </div>
+  </article>
+  <%= partial "footer" %>
+</body>
+</html>

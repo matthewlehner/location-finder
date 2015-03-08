@@ -1,0 +1,236 @@
+$relatedContentBg: $porcelain;
+$relatedContentBorder: #60CAB8;
+$relatedContentColor: #636363;
+$relatedContentLinkColor: $matisse;
+$relatedContentHeaderColor: #464646;
+
+$ctaBorder: #ff8300;
+$ctaBg: #FED9B2;
+$ctaHeaderColor: #db6709;
+$ctaColor: $mineShaft;
+
+$ctaFormBorder: $morningGlory;
+
+#sidebar {
+  padding-bottom: 80px;
+  color: $relatedContentColor;
+
+  a, a:visited {
+    color: $relatedContentLinkColor;
+
+    &.btn-mini, &.btn {
+      color: $white;
+    }
+  }
+
+  h1, h2, h3{
+    margin: 0;
+    font-size: 20px;
+  }
+
+  h4 {
+    color: $mineShaft;
+    font-size: 14px;
+  }
+
+  @include media($mobile) {
+    padding-bottom: 10px;
+  }
+
+  section {
+    margin-bottom: 20px;
+
+    ul {
+      @include clearfix;
+      background-color: $white;
+
+      li {
+        padding: 10px 10px 10px 30px;
+        background: url(image_path("icon_sidebar_item.png")) 10px center no-repeat;
+      }
+    }
+  }
+
+  .related-content{
+    background: $relatedContentBg;
+    border-left: 1px solid $relatedContentBorder;
+
+    > h2 {
+      @include visually-hidden;
+    }
+  }
+
+  .related-group.hidden {
+    h3{
+      &:after{
+        margin-top: 2px;
+        content: "\25B6"; // hex code for solid down-pointing arrow
+      }
+    }
+  }
+
+  .call-to-action {
+    background: $ctaBg;
+    border-left: 1px solid $ctaBorder;
+    padding: 20px;
+
+    h2 {
+      color: $ctaHeaderColor;
+      line-height: 1.25em;
+      margin-bottom: 10px;
+    }
+
+    figure {
+      float: left;
+      margin-right: 10px;
+      width: 50px;
+      height: 50px;
+      border: 1px solid transparentize($ctaHeaderColor, 0.66);
+      border-radius: 50%;
+      overflow: hidden;
+
+      img {
+        max-width: 100%;
+        vertical-align: top;
+      }
+    }
+
+    p {
+      color: #444;
+      margin: 0 0 10px 0;
+      line-height: 20px;
+
+      &:empty {
+        margin: 0;
+      }
+
+
+      .phone-number {
+        font-weight: bold;
+        white-space: nowrap;
+      }
+    }
+
+    .sparkup-form-container {
+      border-left: 1px solid $ctaFormBorder;
+      margin: 20px -25px -20px -20px;
+
+      .footer {
+        padding: 0 10px 10px 10px;
+        font-size: 0.8em;
+        margin-bottom: 0;
+      }
+
+      header{
+        padding: 0 10px 10px 10px;
+        &:after {
+          display: none;
+        }
+      }
+
+      h4{
+        color: #444;
+        font-size: 13px;
+        font-weight: normal;
+        line-height: 20px;
+        margin: 0;
+      }
+
+      form, footer {
+        padding: 20px;
+      }
+
+      dt {
+        margin: 14px 0 5px;
+        padding: 0;
+        border: none;
+      }
+
+      input[type='submit'] {
+        margin:10px 0;
+      }
+
+      & + p {
+        padding-top: 20px;
+      }
+
+      select {
+        width: 100%;
+      }
+    }
+  }
+
+  .blog-sidebar li {
+    height: 25px;
+    padding: 0;
+    background: none;
+  }
+}
+
+.related-group {
+  padding: 20px;
+
+  + .related-group {
+    border-top: 1px solid $mercury;
+  }
+
+  video, object {
+    width:100%;
+  }
+
+  h3{
+    color: $relatedContentHeaderColor;
+  }
+
+  dl {
+    @include clearfix;
+    border-top: 1px solid rgba(0,0,0,0.03);
+    margin: 10px 0 0;
+    padding-top: 10px;
+
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  dt {
+    margin-top: 5px;
+    line-height: 18px;
+
+    a{
+      font-weight: bold;
+    }
+  }
+
+  dd{
+    margin-left: 0;
+  }
+
+  .icon{
+    border-radius: 2px;
+    float: left;
+    height: 60px;
+    margin-right: 10px;
+    overflow: hidden;
+    width: 40px;
+
+    img{
+      height: auto;
+      margin-top: -5%;
+      width: 40px;
+    }
+  }
+
+  footer {
+
+    p {
+      border-top: 1px solid rgba(0,0,0,0.03);
+      font-size: 12px;
+      font-weight: bold;
+      margin: 0;
+      padding-top: 10px;
+      text-transform: uppercase;
+    }
+  }
+}

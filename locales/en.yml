@@ -1,0 +1,460 @@
+en:
+  #ActiveRecord ModelNames
+  activemodel:
+    models:
+      sitewide_search: "Search Result"
+  activerecord:
+      models:
+          page: "Page"
+          physician: "Doctor"
+          baldwin_category: "Category"
+          recipe: "Recipe"
+          category: "Category"
+          service: "Medical Service"
+          location_service: "Service"
+          article: "Article"
+          blog: "Blog"
+          post: "Post"
+          chapter: "Chapter"
+          publication: "Publications"
+          news_item: "News"
+          event: "Classes & Event"
+          clinical_trial: "Trial"
+          medical_classification: "Medical Classification"
+          hour: "Visiting hour"
+          video: "Video"
+          phone_number: "Phone number"
+          email_address: "Email address"
+  helpers:
+      attributes:
+          created_at: "Created at"
+          updated_at: "Updated at"
+          file_field: "File"
+      submit:
+        create: "Add new %{model}"
+        update: "Update %{model}"
+      label:
+        page:
+          title: "Title"
+  views:
+      pagination:
+         previous: "&laquo; Previous"
+         next: "Next &raquo;"
+         truncate: "..."
+         displaying_x_of_y: "Showing %{range} %{name} of %{total} total"
+         displaying_x_y: "Showing %{number} %{name}"
+         no_x_found: "No %{name} found"
+         no_x_found_did_you_mean: "No %{name} found. Did you mean %{suggestion}?"
+         entries: "entries"
+
+      controls:
+          filter_results: "Filter results"
+          all_categories: "All Categories"
+          all_locations: "All Locations"
+          all_types: "All Types"
+          titles_only: "Search only in Page titles"
+          toggle_label:
+            filtered: "Clear Filters"
+            unfiltered: "Show Filters"
+
+  presenters:
+    see_all_x_items: "See All %{number} %{name}"
+    see_all_items: "See All %{name}"
+    relation_manager_group:
+      title_prefix: "Related"
+    affiliator:
+      events: "Classes & Events"
+      news_items: "Scripps News"
+      job_listings: "Careers"
+    call_to_action:
+      promo_code: "Promo Code"
+    map:
+      view_in_google_maps: "View in Google Maps"
+
+  #TODO Namespace these view attributes
+  #View Attributes
+
+  #Errors
+  not_found: "Page not found"
+  internal_server_error: "Technical Error"
+
+  error: "error"
+  no_items: "No %{name} availabe yet."
+  no_video: "No video playback capabilities."
+
+  #Open Graph
+  open_graph:
+    article_section: "Health Care"
+
+  #Meta Navigation
+  home_page: "Home"
+  scripps: "Scripps Health"
+  search: "Search"
+  contact_us: "Contact Us"
+  about_scripps: "About"
+  scripps_org: "scripps.org"
+  for_health_professionals: "For Health Professionals"
+  for_giving: "For Giving"
+  for_job_seekers: "For Job Seekers"
+  for_media: "For Media"
+  for_volunteers: "For Volunteers"
+  for_patients: "For Patients"
+  where_great_things_happen: "Health Care for Life"
+
+  #Navigation
+  sitemap:
+    locations: "Locations"
+    doctor_finder: "Doctor Finder"
+    are_you_considering_scripps: "Are You Considering Scripps?"
+    health_insurance_options: "Health Insurance Options"
+    how_to_select_a_doctor: "How to Select a Doctor"
+    specialties: "Find a Specialty"
+    medical_groups: "Medical Groups"
+    request_a_call_back: "Request a Call Back"
+    medical_services: "Medical Services"
+    featured_services: "Featured Services"
+    services_a_to_z: "Services A-Z"
+    urgent_care: "Urgent Care"
+    emergency_and_trauma: "Emergency and Trauma"
+    laboratories: "Laboratories"
+    health_and_wellness: "Health & Wellness"
+    events_and_classes: "Events & Classes"
+    email_newsletter: "Email Newsletter"
+    health_library: "Health Library"
+    recipes: "Recipes"
+    wellness: "Wellness"
+    research: "Research"
+    areas_of_research: "Areas of Research"
+    active_studies: "Active Studies"
+    join_a_study: "Join a Study"
+    patient_guide: "Patient Guide"
+    billing: "Billing"
+    financial_assistance: "Financial Assistance"
+    medical_records: "Medical Records"
+    patient_rights_and_privacy: "Patient Rights & Privacy"
+    quality: "Quality"
+    locations: "Locations"
+    hospitals: "Hospitals"
+    scripps_clinic: "Scripps Clinic"
+    scripps_coastal_medical_centers: "Scripps Coastal Medical Center"
+    well_being_centers: "Well Being Centers"
+    specialty_centers: "Specialty Centers"
+    labs: "Labs"
+    about_us: "About Us"
+    careers: "Careers"
+    giving: "Giving"
+    news_center: "News Center"
+    volunteering: "Volunteering"
+
+  #Footer
+  find_a_doctor_or_learn_more: "Find a doctor, or learn more about our services and classes"
+  email_us: "Email Us"
+  contact_directory: "Directory"
+
+  #Siedebar
+  related_content: "Related Content"
+  via_scripps_health: "via @scrippshealth"
+
+  site_map: "Site Map"
+  privacy_policy: "Privacy Policy"
+  notice_of_privacy_practices: "Notice of Privacy Practices"
+  charity_policy: "Charity Policy"
+  vendor_information: "Vendor Information"
+  community_health_needs_assessment: "Community Health Needs Assessment"
+
+  copyright_notice: "Copyright &copy; %{year} Scripps Health San Diego, California 92121 All rights reserved."
+
+  #Global
+  scripps_main_phone_number: "1-800-SCRIPPS"
+  scripps_main_phone_number_plain: "800-727-4777"
+  website: "Website"
+
+  #OmniSearch
+  omnisearch:
+    pages: "Pages"
+    physicians: "Doctors"
+    services: "Medical Services"
+    top_hit: "Top Hit"
+    locations: "Locations"
+    articles: "Articles"
+    specialties: "Specialties"
+    events: "Classes and Events"
+    news_items: "Scripps News"
+
+
+  what_can_we_help_you_find: "What can we help you find?"
+  showing_results_for: "Showing results for '%{replacement}'"
+  instead_of: "Instead of '%{original}'"
+  continue_searching: "Search scripps.org for '%{term}'"
+
+  ie_warning:
+    banner_message: "scripps.org does not support this browser. Please consider downloading a newer browser."
+    dear_user: "Dear Internet Explorer user"
+    out_of_date_message: "Because your browser is out-of-date and does not support modern web standards, you may experience difficulty while using this site."
+    upgrade_message: "It is highly recommended that you upgrade to the latest version of your browser or visit Scripps.org with one of these popular alternatives"
+
+  #Questions
+  do_yo_need_help_finding_a_doctor: 'Do you need help finding a doctor?'
+  do_you_want_to_learn_about_a_condition: "Do you want to learn about a condition?"
+  would_you_like_to_pay_your_bill_online: 'Would you like to pay your bill online?'
+  do_you_need_directions_to_a_location: 'Do you need directions to a location?'
+
+  #Banner
+  give_hope_text: "Your generosity can make a difference in the lives of others."
+  give_hope_button: "Donate now"
+
+  components:
+    footer_for_promotions:
+      return_to_home: "Go to Start Page"
+    features:
+        feature:
+          featured: "Featured"
+
+  #Articles
+  articles:
+    show:
+      also_known_as: "Also known as: %{names}"
+      copyright_information: "Copyright Information"
+      see_also: "See also"
+      review_date: "Review date"
+      reviewed_by: "Reviewed by"
+
+  #Events
+  events:
+    show:
+      agenda: "Agenda"
+    info:
+      details: "Event Details"
+    schedule:
+      additional_dates: "Additional Dates"
+    free: 'Free'
+    start_time: "Time"
+    start_date: "Date"
+    fee: "Fee"
+    not_applicable: "n/a"
+    location_name: "Location Name"
+
+  #Services
+  services:
+    alphabetically: "Services A-Z"
+    simple: "Services"
+    view_all_alphabetically: "View all Services A-Z"
+    most_popular: "Featured"
+    guide:
+      looking_for_more: "Looking for more?"
+    location_service_list:
+      location_service_list_header: "This service is offered at those locations:"
+
+  #Locations
+  locations:
+    single_location:
+      overview: "Overview"
+      map_and_directions_html: "Map<span class='mobile-hide'> & Directions</span>"
+      amenities: "Amenities"
+    child_location:
+      multiple_addresses: "Multiple Addresses"
+      click_for_details: "Click for details"
+    location_browser:
+      enter_location: "Enter Location"
+      search_within: "Search Within"
+      services_offered: "Services Offered"
+      address_placeholder: "Street Address, City or ZIP Code"
+      all_locations: "All Locations"
+      address: "Address"
+      phone: "Phone"
+      google_maps_link_text: "View directions on Google Maps"
+
+  about_location: "About %{location_name}"
+
+  news_items:
+    show:
+      media_contact: 'Media Contact'
+      follow_me: 'Follow me'
+
+  blogs:
+    show:
+      read_all_posts: "Show All Posts"
+
+  publications:
+    contents: "Contents"
+    downloads: "Downloads"
+    disclaimer: "Visit %{link} to learn more about Scripps Health's mission to transform medicine, improve health care and save lives"
+    table_of_contents: "Table of Contents"
+    article_is_part_of: "This article is part of"
+    download_pdf: "Download PDF"
+
+  recommendations:
+    recommended_by: "Patients recommend this physician"
+    recommend: "Recommend"
+    be_the_first_to_recommend_this_doctor: "Be the first to recommend this doctor"
+    you_have_already_recommended: "You have already recommended this doctor. You have to wait a few days before you can recommend this doctor again."
+
+  physicians:
+    find:
+      need_help: "Need Help?"
+      call_scripps: "Call %{phone} (%{phone_alt}) for personal assistance, or %{callback_link}"
+      request_a_callback: "Request a call-back"
+      find_a_new_doctor: "Find a new doctor"
+      doctors_specialty: "Doctor's Specialty"
+      on_medical_staff_at: "Location"
+      doctors_gender: "Doctor's Gender"
+      doctors_office: "Doctor's Office"
+      more_search_options: "More search options"
+      find_a_doctor: "Find a Doctor"
+      accepting: 'Currently accepting patients'
+      search_by_doctor_name: "Search by doctor name"
+      browse_alphabetically_by_name: "Browse alphabetically"
+      view_full_list_of_doctors: "View full list of doctors"
+      more_search_options: "More search options"
+      any_location: "Any Location"
+      any_specialty: "Any Specialty"
+      no_preference: "No Preference"
+    index:
+      search_by_doctor_name: "Search by doctor name"
+      search_by_keyword: "Search by keyword"
+      clear_filters: "Clear Filters"
+      export: "Export IDs"
+      current_filters: "Your Current Search"
+      more_filters:   "Refine your results"
+      specializing_in: "specializing in"
+      practicing_at: "practicing at"
+      near_the_zip_code: "near the zip code"
+      who_speak_or_understand: "who speak or understand"
+      generic_tag: "who match the criteria"
+      specialties: 'specialties'
+      locations: 'locations'
+      languages: 'languages'
+      gender: 'gender'
+      features: 'other'
+    show:
+      website: "Web site"
+      languages_spoken: "Languages spoken"
+      primary_office: "Primary office"
+      on_medical_staff_at: "On Medical Staff At"
+      publications: "Publications"
+      pub_med_link_to: "See a listing of %{link} on PubMed, a service of the National Library of Medicine."
+      physicians_publications: "%{name}'s publications"
+      pub_med_disclaimer: "PubMed is a third-party website with no affiliation with Scripps Health"
+      overview: "Overview"
+      office_locations_html: "Office<span class='mobile-hide'> Location</span>s"
+      ahps_html: "Associate<span class='mobile-hide'>d Provider</span>s"
+      biography: "Biography"
+    credentials:
+      original_specialties: "Specialties"
+      areas_of_expertise: "Areas of Expertise"
+      fellowships: "Fellowships"
+      research_fellowships: "Research Fellowships"
+      certifications: "Board Certifications"
+      internships: "Internships"
+      residencies: "Residencies"
+      medical_educations: "Medical Education"
+    physician:
+      not_accepting: "Not accepting new patients"
+      accepting: "Accepts new patients"
+      video: "Video"
+  form:
+    index:
+      thank_you: "Thank You"
+      go_back: "If you wish, you may return to the page you came from %{link}"
+      here: "here"
+
+
+  call_to_action_factory:
+    physician:
+      accepting: "The physician's office encourages new patient inquiries."
+      call_office: "Call the office at %{phone}."
+      find_physician: "Need a Doctor?"
+      call_main: "Let Scripps connect you with a physician who is right for you. Call %{phone}."
+      not_accepting: "We’re sorry. %{name} isn’t accepting new patients."
+      accepting_patients: "Accepting New Patients?"
+    clinical_trial:
+      not_currently_accepting: "We’re sorry, but this trial is not currently accepting new participants."
+      do_you_qualify: "Learn More"
+      no_enrollment: "No enrollments available"
+    evariant:
+      learn_more: "Learn More"
+      download_a_guide: "Download a Guide"
+      schedule_an_appointment: "Schedule an Appointment"
+    article:
+      question_about_health: "Do you have questions about your health or wellness?"
+      call_to_speak_to_specialist: "Call %{phone} to speak with a physician referral specialist who can help you find a Scripps doctor."
+      find_a_doctor: "Find a Doctor"
+
+ #Recipes
+  nutrition_facts: 'Nutrition Facts'
+  recipes:
+    show:
+      find_more_like_this: 'Find more recipes like this one under'
+      special_diets: 'Special Diets'
+      ingredients: 'Ingredients'
+      directions: 'Directions'
+      yield: "Yield"
+    nutrition_facts:
+      nutrition_facts: 'Nutrition Facts'
+      amount_per_serving: 'Amount Per Serving'
+      serving_size: 'Serving Size'
+      calories: 'Calories'
+      daily_value: 'Daily Value'
+      footer: 'Percent Daily Values are based on a 2,000 calorie diet. Your Daily Values may be higher or lower depending on your calories needs.'
+
+  broadcasts:
+    unpublished_content: "You are viewing content that is not published. You are able to see this because you are logged into Sparkle CMS."
+
+  #Clinical Trials
+  clinical_trials:
+    currently_enrolling: "This trial is currently enrolling"
+    currently_not_enrolling: "This trial is not currently enrolling"
+    controls:
+      only_show_trials_that_are_recruiting: "Only show trials that are recruiting"
+    show:
+      trial_id: "Trial ID"
+      principal_investigator: "Principal Investigator"
+      contact_info: "Contact Info"
+      contact_name: "Name"
+      contact_email: "Email"
+      contact_phone: "Contact Phone"
+      why_is_this_trial_not_accepting:
+        question: "Why isn't this trial accepting new patients?"
+        answer: "The trial may have a limited enrollment number, reached its maximum, or come to the end of its enrollment period. %{link}"
+        link: "View trials that are recruiting"
+      how_else_can_scripps_help:
+        question: "How else can Scripps help me?"
+        answer: "We have a broad range of physician expertise and specialized medical services available. You can %{link}, call 1-800-SCRIPPS (1-800-727-4777) for personal help, or see related Scripps services."
+        link: "find a doctor online"
+      how_can_i_find_trials:
+        question: "How can I find trials that are accepting new participants?"
+        answer: "For more information, see a %{link}, or call the clinical research office at 800-995-4200 for help."
+        link: "list of trials that are recruiting"
+
+  #Addresses
+  main_office: "Main Office"
+  zip_code: "Zip Code"
+
+  #Forms
+  some_fields_are_required: "All fields with an asterisk are required."
+  spam_message: "We're sorry, but your form contains some content that is invalid. In order to prevent spam we do not allow HTML, for instance. If you've entered your Email address please make sure it's valid."
+  form_submission_error: "Something went wrong with this form submission, please retry"
+  thank_you: "Thank You"
+  find_a_doctor: "Find a Doctor"
+  submit: "Submit"
+
+  posts:
+    sidebar:
+      related_blogs: "Related Blogs"
+
+
+  #modifiers
+  all: "All"
+  more: "More"
+
+  #sharing
+  sharing_message: "I thought you might be interested in this article: %{url}"
+  sharing_subject: "Scripps.org: %{title}"
+
+  summarizer:
+    read_less: "Show less"
+    read_more: "Read more"
+
+  view_location_details: "View more details"
+  reset: "Reset"
+  no_locations_match_your_criteria: "No locations match your criteria"

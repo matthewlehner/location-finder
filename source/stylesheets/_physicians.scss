@@ -1,0 +1,344 @@
+#physicians_find{
+  padding-left: 0;
+
+  .filters, .by_name, .by_alphabet {
+    background: $formBgColor;
+    padding: 35px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 30px;
+    margin: 0 0 32px 0;
+  }
+
+  .filters, .omega {
+    @include span-columns(6);
+
+    @include media($mobile) {
+      @include span-columns(4);
+    }
+  }
+
+  .by_name {
+    footer {
+      margin-top: 15px;
+      margin-bottom: 25px;
+
+      @include media($mobile) {
+       margin-bottom: 0;
+      }
+    }
+
+    form {
+      position: relative;
+    }
+  }
+
+  .container {
+    section {
+      label, input {
+        display: block;
+      }
+
+      fieldset input {
+        display: inline-block;
+      }
+
+      form {
+        dt {
+          margin-bottom: 5px;
+        }
+
+        dd {
+          margin-bottom: 20px;
+        }
+
+        footer {
+          input {
+            float: right;
+          }
+        }
+
+        select {
+          width: 100%;
+          border: $defaultBorder;
+          border-radius: 3px;
+          box-shadow:0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+          background-color: #fff;
+        }
+
+        #zip_code, #distance {
+          width: 46%;
+          display: inline-block;
+        }
+        #distance {
+          float: right;
+          margin: 2px auto;
+        }
+
+        .search_by_name {
+          input {
+            float: left;
+
+            &[type='text'] {
+              width: 70%;
+              margin-right: 3%;
+
+              @include media($mobile) {
+                width: 64%;
+              }
+            }
+
+            &[type='submit'] {
+              width: 26%;
+              @include media($mobile) {
+                width: 33%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .by_alphabet {
+    ul {
+      margin:0;
+      text-align: center;
+      @include row;
+    }
+
+    li {
+      @include span-columns(1 of 13);
+      @include omega(13n);
+      line-height: 21px;
+      margin-bottom: 19px;
+      border-right: 1px solid $horizon-blue;
+      padding-right: 2px;
+      text-align: center;
+      font-weight: bold;
+
+      &:nth-child(13n) {
+        border: none;
+      }
+    }
+
+    footer {
+      margin-bottom: 7px;
+    }
+  }
+
+  .help_line {
+    @include span-columns(12);
+    background-color: $cinderella-orange;
+    margin-bottom:15px;
+    padding: 0;
+
+    h2 {
+      background-color: $darker-orange;
+      color: white;
+      float:left;
+      font-size:12px;
+      letter-spacing:normal;
+      margin:0;
+      border-radius: 3px 0 0 3px;
+      text-transform: uppercase;
+      letter-spacing:normal;
+      padding: 4px 4px 4px 7px;
+    }
+
+    h3 {
+      float:left;
+      font-size:12px;
+      margin:0;
+      padding: 5px 4px 4px 20px;
+      letter-spacing:normal;
+      background: transparent url(image_path("help-line-arrow.png")) left center no-repeat;
+    }
+
+  }
+
+  #omni_search_results{
+    top: 45px;
+    left: 9px;
+    width: 468px;
+    max-width: 98%;
+
+    .result-sets{
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .results {
+      margin-left: 0;
+    }
+
+    .thumbnail {
+      margin: 5px 0;
+    }
+
+    figcaption {
+      width: auto;
+    }
+
+    dl{
+      border: none;
+    }
+
+    dd{
+      margin: 0;
+      border: none;
+    }
+  }
+
+  figure {
+    text-align: center;
+  }
+}
+
+.physician-summary {
+  @include row;
+  margin-bottom: 20px;
+}
+
+.physician-credentials-summary {
+  @include span-columns(4.5 of 9);
+
+  @include media($mobile) {
+    @include span-columns(2.5 of 4);
+    @include omega;
+  }
+}
+
+.recommender {
+  @include span-columns(2 of 9);
+  @include omega;
+
+  border: 1px solid $scrippsGreen;
+  font-size: $baseFontSize;
+  line-height: 1.25em;
+  padding: 15px;
+
+  .count {
+    color: $scrippsGreen;
+    display: block;
+    font-size: 38px;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .button_to {
+    margin-top: 10px;
+
+    .btn {
+      font-size: $baseFontSize - 2;
+      font-weight: 600;
+      padding: 0;
+      width: 100%;
+    }
+  }
+
+
+  @include media($tablet) {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  @include media($mobile) {
+    @include span-columns(4 of 4);
+
+    margin-top: 15px;
+
+    .count {
+      @include span-columns(1 of 4);
+      margin-bottom: 0;
+    }
+
+    .recommender-text {
+      @include span-columns(1.66 of 4);
+    }
+
+    .button_to {
+      @include span-columns(1.34 of 4);
+
+      margin-top: 0;
+
+      .btn {
+        font-size: $baseFontSize - 4;
+      }
+    }
+  }
+}
+
+.physician-summary {
+  .profile-picture {
+    @include span-columns(2.5 of 9);
+
+    @include media($mobile) {
+      @include span-columns(1.5 of 4);
+    }
+  }
+
+  .accepting-patients {
+    background: $cinderella-orange url(image_path("call-to-action-arrow.png")) center top no-repeat;
+    padding:10px;
+    margin-bottom: 10px;
+    border: 0px;
+  }
+}
+
+#physicians_show {
+  .certifications,
+  .specialties,
+  .expertise,
+  .pub-med-link,
+  .staff {
+    margin-bottom: 18px;
+
+    ul {
+      margin-left: 20px;
+      list-style-type: disc;
+    }
+
+    .pub-med-disclaimer {
+      font-size: 0.8em;
+    }
+  }
+
+  .tab-panel {
+    .map-image {
+      display: none;
+    }
+  }
+
+  .country-name {
+    @extend .visually-hidden;
+  }
+}
+
+.tab-panel-map-location-list {
+  .geo, .locale-name {
+    @extend .visually-hidden;
+  }
+}
+
+.tab-panel-associates {
+  padding: 1em;
+
+  li {
+    @include span-columns(9 of 9);
+  }
+
+  .profile-picture {
+    @include span-columns(2 of 9);
+  }
+
+  .associate-name {
+    @include span-columns(7 of 9);
+
+    font-size: 18px;
+    margin-top: 2em;
+  }
+}

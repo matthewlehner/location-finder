@@ -1,0 +1,52 @@
+// @include default-layout { specific markup } inside
+// a selector and it'll put your css inside
+//
+// for example:
+//
+// .feature {
+//   @include default-layout {
+//     styling specific to the default page layout
+//   }
+// }
+//
+// compiles to:
+//
+// body.default .feature { stuff you put in the block }
+//
+
+@mixin default-layout {
+  .default & {
+    @content;
+  }
+}
+
+.default {
+  .container {
+    @include clearfix;
+    @include maxWidth;
+    margin: {
+      left: auto;
+      right: auto;
+    }
+  }
+
+  .content {
+    @include span-columns(8);
+    border-right: $defaultBorder;
+    padding: {
+      right: flex-gutter();
+    }
+  }
+
+  #sidebar {
+    @include span-columns(4);
+  }
+
+  .content, #sidebar {
+    @include media($mobile) {
+      border: none;
+      @include span-columns(4);
+      padding-right: 0;
+    }
+  }
+}

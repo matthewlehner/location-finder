@@ -1,0 +1,89 @@
+$disabledColor: $wispGrey;
+$currentColor: $slateGrey;
+
+.pagination {
+  width: 100%;
+  margin-top: 20px;
+  /* self-clearing method: */
+  margin: 20px auto;
+  text-align: center;
+  cursor: default;
+
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+
+  &.bottom{
+    width: 100%;
+    text-align: center;
+  }
+
+  .prev{
+    float: left;
+  }
+
+  .next{
+    float: right;
+  }
+
+  .page{
+    margin: 0 .5em;
+
+    @include media($mobile) {
+      margin: 0;
+    }
+  }
+
+  .disabled {
+    color: $disabledColor;
+  }
+
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    color: $currentColor;
+  }
+
+  a, span, em {
+    padding: 0 0.3em;
+    display: inline-block;
+    margin-right: 1px;
+    font-weight: bold;
+
+  }
+
+  a:hover, a:focus {
+    text-decoration: underline;
+  }
+
+  a {
+    text-decoration: none;
+    color: $new-cyan;
+  }
+
+  .page_info {
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center;
+
+    b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em;
+    }
+  }
+}
+
+* html .pagination {
+  height: 1%;
+}
+
+*:first-child + html .pagination {
+  overflow: hidden;
+}

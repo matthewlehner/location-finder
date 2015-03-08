@@ -1,0 +1,245 @@
+$topHitColor: #555555;
+$labelColor: #187cae;
+$resultsColor: #0e79ae;
+$selectedResultBgColor: #e2f2ff;
+
+.omni-search {
+  position: relative;
+  @include transition-property(all);
+  @include transition-duration(0.5s);
+
+  @include media($mobile) {
+    padding: 0 10px;
+  }
+
+  #controls_query {
+    display: inline-block;
+    border: 1px solid $omniBorder;
+    border-radius: 6px;
+    width: 100%;
+    @include background-image(linear-gradient(rgba(0,0,0,0.1) 0%, transparent 9%));
+
+    @include media($tablet-and-larger) {
+      height: 55px;
+      padding: 16px 50px 8px 10px;
+      font-size: 24px;
+      line-height: 29px;
+    }
+
+    @include media($mobile) {
+      height: 37px;
+      line-height: 30px;
+      font-size: 1em;
+    }
+  }
+
+  .omni-search-submit {
+    @include hide-text;
+    background: transparent url(image_path("icon_search.svg")) center no-repeat;
+    background-size: 27px;
+    border: none;
+    color: transparent; // To ensure this is hidden properly in FF 24 LTS
+    height: 48px;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    width: 48px;
+
+    @include media($mobile) {
+      height: 31px;
+      width: 31px;
+      background-size: 16px;
+      right: 15px;
+    }
+  }
+}
+
+#home .omni-search {
+  position: absolute;
+  top: 145px;
+  width: 550px;
+
+  @include media($tablet) {
+    width: 50%;
+  }
+
+  @include media($mobile) {
+    top: 118px;
+    left: 0;
+    width: 100%;
+  }
+}
+
+@include keyframes(confirmation_blink) {
+  from {
+    opacity: 1.0;
+  }
+  to {
+    opacity: 0.0;
+  }
+}
+
+#omni_search_results{
+  z-index: 2;
+  position: absolute;
+  top: 64px;
+  left: 5px;
+  width: 540px;
+  background-color: $white;
+  box-shadow:rgba( 0, 0, 0, 0.25) 0 0 10px 0;
+  border-radius:5px;
+  padding: 2px 14px 0;
+  display: none;
+  color: $resultsColor;
+
+  @include media($mobile) {
+    top: 50px;
+    width: 98%;
+  }
+
+  &:after {
+    position: absolute;
+    left: 24px;
+    top: -10px;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 11px solid $white;
+    content: ''
+  }
+
+  .results{
+    @extend %menuList;
+    margin: 0 0 0 100px;
+    text-indent: 0;
+
+    @include media($mobile) {
+      margin-left: 0;
+    }
+
+  }
+
+  .continue-searching {
+    font-weight: bold;
+    color: $bodyLinkColor;
+
+    .results {
+      margin: 0;
+    }
+
+    li {
+      padding: 0;
+    }
+
+    figcaption {
+      margin: 0;
+    }
+  }
+
+  li {
+    padding: 0 6px;
+
+    @include media($mobile) {
+      padding: 0;
+    }
+
+    &.omnisearch_selection {
+      background-color: $selectedResultBgColor;
+    }
+    &.omnisearch_selection_confirm{
+      -webkit-animation-name: confirmation_blink;
+      -webkit-animation-iteration-count: 2;
+      -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+      -webkit-animation-duration: 0.2s;
+    }
+  }
+
+  figure {
+    height: 38px;
+    display: inline-block;
+    @include box-sizing(border-box);
+    width: 100%;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-left: -5px;
+    }
+  }
+
+  .thumbnail, figcaption{
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .thumbnail{
+    width: 26px;
+    height: 26px;
+    overflow: hidden;
+    border-radius: 3px;
+    margin: 6px 0;
+
+    img{
+      display: block;
+      width: 26px;
+    }
+  }
+
+  figcaption {
+    margin-left: 5px;
+    width: 365px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 38px;
+
+    @include media($mobile) {
+      width: 80%;
+    }
+  }
+
+  .highlight {
+    color: $scrippsOrange;
+  }
+}
+
+
+
+.result-sets,
+.extended-result-sets {
+  position: relative;
+  display: block;
+  padding: 0px;
+
+  dl {
+    margin: 0;
+  }
+
+  dt {
+    padding-top: 12px;
+    text-transform: uppercase;
+    float: left;
+    width: 80px;
+    color: $labelColor;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.25em;
+
+    @include media($mobile) {
+      float: none;
+    }
+
+    &:first-child {
+      color: $topHitColor;
+    }
+  }
+
+  dd {
+    margin: 0;
+    padding: 12px 0px;
+    display: block;
+    position: relative;
+    border-bottom: $defaultBorder;
+  }
+}

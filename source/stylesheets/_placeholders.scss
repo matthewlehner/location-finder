@@ -1,0 +1,45 @@
+%menuList {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+%inlineList {
+  @extend %menuList;
+
+  li {
+    display: inline-block;
+  }
+}
+
+%bulletList {
+  list-style: none;
+
+  li {
+    &:before {
+      margin-right: 0.5em;
+      content: "•";
+      color: $bodyLinkColor;
+    }
+  }
+}
+
+%bulletListSpaced {
+  @extend %bulletList;
+  margin-bottom: 1em;
+  padding-left: 1em;
+
+  li {
+    text-indent: -1em;
+  }
+}
+
+%compressedSpacing {
+  letter-spacing: -1px;
+}
+
+%tabHeader {
+  color: $slateGrey;
+  font-size: $baseFontSize + 2;
+  margin: 0;
+}

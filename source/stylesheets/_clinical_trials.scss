@@ -1,0 +1,21 @@
+article#clinical_trial {
+  section {
+  	border: solid 1px black;
+  	margin-bottom: 1em;
+  	padding: 10px;
+    background-color: #55bada;
+  }
+  section.criteria {
+  	ul {
+  		margin-left: 2em;
+  		margin-bottom: 1em;
+  		background-color: pink;
+
+  		li {
+  			list-style: disc;
+  			margin-bottom: 1em;
+  			background-color: #bada55;
+  		}
+  	}
+  }
+}

@@ -1,0 +1,74 @@
+// =========
+// = Fonts =
+// =========
+
+// ==========================
+// = Imported Font families =
+// ==========================
+@font-face {
+    font-family: 'CartoGothicStd';
+    src: font-url('CartoGothicStd-Book-webfont.eot');
+    src: font-url('CartoGothicStd-Book-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('CartoGothicStd-Book-webfont.woff') format('woff'),
+         font-url('CartoGothicStd-Book-webfont.ttf') format('truetype'),
+         font-url('CartoGothicStd-Book-webfont.svg#CartoGothicStdBook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CartoGothicStd';
+    src: font-url('CartoGothicStd-Italic-webfont.eot');
+    src: font-url('CartoGothicStd-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('CartoGothicStd-Italic-webfont.woff') format('woff'),
+         font-url('CartoGothicStd-Italic-webfont.ttf') format('truetype'),
+         font-url('CartoGothicStd-Italic-webfont.svg#CartoGothicStdItalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'CartoGothicStd';
+    src: font-url('CartoGothicStd-Bold-webfont.eot');
+    src: font-url('CartoGothicStd-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('CartoGothicStd-Bold-webfont.woff') format('woff'),
+         font-url('CartoGothicStd-Bold-webfont.ttf') format('truetype'),
+         font-url('CartoGothicStd-Bold-webfont.svg#CartoGothicStdBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CartoGothicStd';
+    src: font-url('CartoGothicStd-BoldItalic-webfont.eot');
+    src: font-url('CartoGothicStd-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('CartoGothicStd-BoldItalic-webfont.woff') format('woff'),
+         font-url('CartoGothicStd-BoldItalic-webfont.ttf') format('truetype'),
+         font-url('CartoGothicStd-BoldItalic-webfont.svg#CartoGothicStdBoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+// =================
+// = Font Families =
+// =================
+
+//Imported
+$cartoGothicStd: 'CartoGothicStd';
+
+//Other
+$italic: "Georgia", "Garamond";
+
+// ================
+// = Font Grammar =
+// ================
+$bodyFontFamily: $cartoGothicStd, sans-serif;
+
+$navigationFontFamily: $cartoGothicStd;
+$navigationFont: $navigationFontFamily;
+
+$headlineFontFamily: $cartoGothicStd, sans-serif;
+$headlineFont: $headlineFontFamily bold;
+
+$relatedGroupNameFont: $cartoGothicStd;
+$italicFont: $italic;

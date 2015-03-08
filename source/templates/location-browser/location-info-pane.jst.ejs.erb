@@ -1,0 +1,7 @@
+<div class="lb-location-info-pane">
+  <%%= JST["location-browser/address"](addresses[0]) %>
+
+  <%% if (typeof url !== "undefined" && url !== null) { %>
+    <a class="location-link" href='<%%= url %>'><%=I18n.t ".view_location_details"%></a>
+  <%% } %>
+</div>

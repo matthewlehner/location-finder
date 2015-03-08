@@ -1,0 +1,70 @@
+#articles_show{
+	.segments{
+		ul{
+			margin-bottom: 1em;
+      @extend %bulletListSpaced;
+		}
+	}
+
+	.article{
+		float: none;
+		clear: both;
+		margin-bottom: 20px;
+		border-bottom: $defaultBorder;
+		@include clearfix;
+		
+		header{
+			p{
+				margin-bottom: 0;
+				font-weight: bold;
+				text-transform: uppercase;
+				color: #92b7cd;
+			}
+		}
+		
+		figure{
+			display: block;
+			float: right;
+			clear: both;
+			margin: 0 0 10px 20px;
+			max-height: 320px;
+			max-height: 160px !important;
+			overflow: hidden;
+			width: auto;
+			@include clearfix;
+			img{
+
+				&:after {
+					content: ".";
+					display: block;
+					height: 0;
+					clear: both;
+					visibility: hidden;
+				}
+			}
+
+			&:after {
+				visibility: hidden;
+					display: block;
+					font-size: 0;
+					content: " ";
+					clear: both;
+					height: 0;
+			}
+		}
+	}
+	
+	.review-info, .summary, .summary p{
+		font-size: 11.5px;
+		padding-bottom: 15px;
+		
+		img{
+			margin-right: 10px;
+		}
+	}
+}
+
+.also-known{
+	font-family: $italicFont;
+	line-height: 1.5em;
+}

@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+@import 'normalize';
+
+//grid-framework.
+@import 'bourbon';
+@import 'variables';
+@import 'neat';
+@import 'breakpoints';
+
+@import 'mixins';
+@import "colors";
+// // Icon font from the gem
+@import 'sparklets';
+@import 'fonts';
+@import 'typography';
+@import 'placeholders';
+
+// Page layouts
+@import 'layouts/default';
+@import 'layouts/three_columns';
+@import 'layouts/bare';
+@import 'layouts/sidebar';
+@import 'layouts/headless';
+
+// Component styling.
+@import 'core';
+
+@import 'components/tab';
+@import 'components/navigation';
+@import 'components/mobile_navigation';
+@import 'components/content_header';
+@import 'components/sharing_toolbar';
+@import 'components/footer';
+@import 'components/feature_set';
+@import 'components/carousel';
+@import 'components/form';
+@import 'components/buttons';
+@import 'components/omnisearch';
+
+@import 'shared/finder';
+@import 'shared/pagination';
+@import 'shared/date_picker';
+
+@import 'home';
+@import 'results-listing';
+@import 'physicians';
+@import 'clinical_trials';
+@import 'location_browser';
+@import 'recipes';
+@import 'services';
+@import 'locations';
+@import 'publications';
+@import 'news_article';
+@import 'pagination';
+
+// Page style overrides
+@import 'sparkup';
+
+@import 'development'; // Dev styles.
+// TO-DO: Get rid of these dirty styles
+@import 'temporary';

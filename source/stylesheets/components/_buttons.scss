@@ -1,0 +1,81 @@
+$buttonBg: $cerulean;
+
+%btn-foundation {
+	height: 30px;
+	border-radius:4px;
+
+	line-height: 30px;
+}
+
+.btn-mini {
+	display: inline-block;
+
+  vertical-align: bottom;
+	font-weight: normal;
+	@extend %submit;
+	padding: 0 8px;
+	font-size: 12px;
+  line-height: 20px;
+  height: 20px;
+  &:link, &:active, &:visited {
+  	color: white;
+  };
+
+  &:hover {
+  	color: white;
+  	text-decoration: none;
+  };
+}
+
+
+input[type=submit], %submit {
+	@extend %btn-foundation;
+	padding: 0 15px;
+	border: none;
+
+	background-color: $buttonBg;
+	@include background-image(
+    linear-gradient(rgba(255,255,255,0.05), rgba(0,0,0,0.05))
+	);
+
+	color: white;
+  text-rendering: optimizeLegibility;
+
+	&:hover {
+		@include background-image(
+      linear-gradient(#2395CE, #0C7EB7 55%)
+		);
+	}
+
+	&:active {
+		@include background-image(
+      linear-gradient(#006Da8, #2395CE 8%, #0C7EB7 55%)
+		);
+	}
+}
+
+.btn, input[type=submit].btn, %button {
+	@extend %btn-foundation;
+	padding: 0 20px;
+	background: #FFF;
+	@include background( linear-gradient(top, #FFF, #EDEDED));
+	border: $defaultBorder;
+	color: $new-cyan;
+	text-shadow: #ECECEC 0 1px 0;
+
+	&:hover {
+		background: #EDEDED;
+		@include background(
+		linear-gradient(top, #FFF, #E0E0E0 66%)
+		#EDEDED
+		);
+		text-decoration: none;
+	}
+
+	&:active {
+		@include background(
+		linear-gradient(top, #D6D6D6, #FFF 12%, #E0E0E0 61%)
+		#D6D6D6
+		);
+	}
+}

@@ -1,0 +1,348 @@
+$footerBgColor:   $greyLight;
+$footerLinkColor: $matisse;
+
+.site-footer {
+  position: relative;
+
+  @include media($mobile) {
+    font-size: 14px;
+  }
+
+  a, a:visited {
+    color: $footerLinkColor;
+  }
+
+  .container, .learn {
+    @extend .max-width-wrapper;
+    @include clearfix;
+  }
+
+  .footer-content {
+    background: $footerBgColor;
+  }
+
+  .learn {
+    padding-top: 15px;
+    padding-bottom: 0;
+    position: relative;
+
+    @include media($mobile) {
+      display: none;
+    }
+
+    h6 {
+      border-top: 1px solid #e1e1e1;
+      padding-top: 16px;
+      color: $scrippsGreen;
+      margin: 0;
+      margin-top: -16px;
+      font-size: 21px;
+
+      @include media($tablet) {
+        font-size: 1.2em;
+      }
+    }
+
+    .btn {
+      position: absolute;
+      right: 10px;
+      padding: 0 25px;
+      height: 36px;
+      line-height: 36px;
+      top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: $scrippsGreen;
+
+      @include media($tablet) {
+        padding:0 10px;
+        right: 20px;
+      }
+    }
+  }
+
+  .people {
+    float: left;
+    line-height: 1.5em;
+    margin-bottom: -16px;
+    margin-right: 20px;
+    height: 60px;
+    width: 250px;
+
+    @include media($tablet) {
+      width: 90px;
+      margin-right: 10px;
+    }
+
+    p{
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.5em;
+      
+      @include media($tablet) {
+        @include visually-hidden;
+      }
+    }
+
+    img {
+      float: left;
+      position: relative;
+      top: -36px;
+      margin-right: 10px;
+    }
+  }
+
+  .sitemap, .sub {
+    color: $nav-hover;
+    background-color: $footerBgColor;
+  }
+
+  ul {
+    @extend %menuList;
+  }
+
+  .sitemap {
+    padding-top: 30px;
+
+    @include media($tablet) {
+      padding-top: 10px;
+    }
+  }
+
+  .contact-bar{
+
+    @include media($full) {
+      @include span-columns(10 of 12);
+    }
+
+    @include media($tablet) {
+      text-align: center;
+      padding-bottom: 10px;
+
+      .footer-contact-bar-links {
+        display: block;
+      }
+
+      .footer-contact-link:first-child {
+        border-left: none;
+      }
+    }
+
+    @include media($mobile) {
+      text-align: center;
+
+      .footer-contact-link {
+        display: none;
+      }
+    }
+
+    .footer-contact-link {
+      padding-left: 5px;
+      border-left: 1px solid #bbddef;
+
+      @include media($full) {
+        font-weight: bold;
+      }
+
+      @include media($mobile) {
+         border-left: none;
+      }
+    }
+  }
+
+  .social {
+    @include media($full) {
+      @include span-columns(2 of 12);
+      @include omega;
+
+      li {
+        float: left;
+      }
+    }
+
+    @include media($tablet) {
+      @include row;
+      text-align: center;
+      border-bottom: $defaultBorder;
+      position: relative;
+
+      li {
+        width: 90px;
+        background: $footerBgColor;
+        position:relative;
+        top: 20px;
+        display: inline-block;
+      }
+    }
+
+    @include media($mobile) {
+      text-align: center;
+
+      li {
+        @include media($mobile) {
+          display: inline-block;
+          margin: 1em;
+        }
+      }
+    }
+
+
+    a {
+      margin-right: 5px;
+      &:hover {
+        text-decoration: none;
+      }
+
+      &:before {
+        color: $footerLinkColor;
+        font-size: 23px;
+        padding-top: 3px;
+        text-align: center;
+        width: 23px;
+        height: 25px;
+      }
+      
+      @include media($mobile) {
+        margin-right: 0;
+      }
+    }
+
+    .hidden-text {
+      display: block;
+      overflow: hidden;
+      width: 0;
+      height: 0;
+    }
+
+    .facebook {
+      @extend .icon-connect-facebook;
+    }
+
+    .twitter {
+      @extend .icon-connect-twitter;
+    }
+
+    .googleplus {
+      @extend .icon-connect-googleplus;
+    }
+
+    .youtube {
+      @extend .icon-connect-youtube;
+    }
+
+    .email {
+      @extend .icon-connect-mailinglist;
+    }
+  }
+
+  .featured-sitemap {
+    margin-top: 30px;
+    @include row;
+
+    @include media($mobile) {
+      display: none;
+    }
+
+    .section {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      @include span-columns(2);
+      @include omega(6n);
+
+      @include media($tablet) {
+        height: 195px;
+        @include span-columns(3);
+        @include omega(4n);
+      }
+    }
+
+    li {
+      margin-bottom: 0.6em;
+    }
+
+    .root {
+      font-weight: bold;
+      display: block;
+
+    }
+
+    .branches li {
+      font-size: 14px;
+      line-height: 1.3em;
+    }
+  }
+
+  .sub {
+    position: relative;
+
+    @include media($full) {
+      padding-top: 10px;
+      padding-bottom: 70px;
+      border-top: 1px solid #bbddef;
+      font-size: 14px;
+
+      p, li {
+        display: inline-block;
+      }
+
+      li {
+        &:before {
+          content: '|';
+          padding-left: 5px;
+          padding-right: 5px;
+          color: #bbddef;
+        }
+
+        &:first-child:before {
+          content: none;
+          padding: 0;
+        }
+      }
+    }
+
+    @include media($tablet) {
+      bottom: 20px;
+      font-size: 14px;
+      height: 195px;
+      left: 0;
+      padding-right: 20px;
+      position: absolute;
+
+      @include shift(6);
+      @include span-columns(6);
+
+      p, ul {
+        line-height: 1.3em;
+        @include span-columns(3 of 6);
+      }
+
+      li {
+        margin-bottom: 0.6em;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    @include media($mobile) {
+      text-align: center;
+      padding-bottom: 20px;
+
+      ul, li, p {
+        display: inline;
+      }
+
+      li {
+        &:after {
+          content: ' | ';
+        }
+      }
+
+      p {
+        font-size: 1em;
+        line-height: 28px;
+      }
+    }
+  }
+}

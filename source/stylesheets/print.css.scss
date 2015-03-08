@@ -1,0 +1,66 @@
+@import 'bourbon';
+@import 'neat';
+@import 'fonts';
+
+body{
+  font-family: $bodyFontFamily;
+}
+
+.primary-navigation,
+.secondary-navigation,
+.featured a,
+.root a,
+.breadcrumbs,
+.site-footer,
+#future_bar,
+#sidebar,
+#sharing-toolbar,
+.recommender {
+  display: none;
+}
+
+.title,
+.container {
+  @include outer-container;
+}
+
+.container {
+  .content {
+    @include span-columns(12);
+  }
+}
+
+figure {
+  overflow: hidden;
+  margin: 0;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  width: 100%;
+}
+
+.physician.vcard {
+  @include span-columns(4);
+  
+  .geo {
+    display: none;
+  }
+  
+}
+
+.physician-details {
+  @include span-columns(8);
+}
+
+.vcard {
+  dd {
+    margin-left: 0;
+  }
+
+  ul {
+    padding: 0;
+  }
+}

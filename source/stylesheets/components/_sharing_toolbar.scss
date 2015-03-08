@@ -1,0 +1,166 @@
+$sharingEmailColor:    #00B798;
+$sharingFacebookColor: #185EA4;
+$sharingTwitterColor:  #00ABE6;
+$sharingGoogleColor:   #F32D11;
+$sharingMoreColor:     #E96519;
+$sharingPinterestColor: #bd071d;
+
+#sharing-toolbar {
+  @include row;
+  border-top: $defaultBorder;
+  border-bottom: $defaultBorder;
+  margin-bottom: 10px;
+  padding: 8px 0 4px 0;
+
+  ul {
+    @extend %menuList;
+  }
+
+  li {
+    float: left;
+  }
+
+  a {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-right: 20px;
+    font-size: 14px;
+    &:before {
+      font-size: 16px;
+      width: 23px;
+    }
+  }
+
+  .sharing-toolbar-email {
+    @extend .icon-small-email;
+    color: $sharingEmailColor;
+  }
+
+  .sharing-toolbar-facebook {
+    @extend .icon-small-facebook;
+    color: $sharingFacebookColor;
+
+  }
+
+  .sharing-toolbar-twitter {
+    @extend .icon-small-twitter;
+    color: $sharingTwitterColor;
+  }
+
+  .sharing-toolbar-google {
+    @extend .icon-small-googleplus;
+    color: $sharingGoogleColor;
+  }
+
+  .sharing-toolbar-pinterest {
+    @extend .icon-small-pinterest;
+      color: $sharingPinterestColor;
+        &:before {
+          margin-right: 8px;
+          background-color: $sharingPinterestColor;
+          width: 28px;
+          color: white;
+      }
+  }
+
+  .sharing-toolbar-more {
+    @extend .icon-small-more;
+    color: $sharingMoreColor;
+  }
+
+  @include media($mobile) {
+    border-top: none;
+    padding: 0;
+
+    .sharing-link-text {
+      display: none;
+    }
+
+    a {
+      margin-right: 10px;
+      height: 40px;
+      width: 40px;
+      vertical-align: middle;
+
+      &:before {
+        font-size: 20px;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  // The max-width is here to exclude it from the IE breakpoints override.
+  @include media(max-width 999999px min-width 1200px) {
+    position: absolute;
+    left: 0;
+    top: 248px;
+    border-top: none;
+    border-bottom: none;
+
+    li {
+      float: none;
+      height: 29px;
+    }
+
+    a {
+      margin: 0;
+
+      &:before {
+        position: relative;
+        top: 4px;
+        font-size: 28px;
+        width: 35px;
+      }
+
+      &:hover {
+        text-decoration: none;
+
+        .sharing-link-text {
+          position: relative;
+          left: 0;
+          opacity: 1;
+        }
+      }
+    }
+
+    .sharing-link-text {
+      left: -100px;
+      opacity: 0;
+      @include transition(
+        left 0.3s ease,
+        opacity 0.2s ease 0.1s
+      );
+    }
+
+    .sharing-toolbar-email {
+
+      &:before {
+        @include icon-large-email;
+      }
+    }
+
+    .sharing-toolbar-facebook {
+      &:before {
+        @include icon-large-facebook;
+      }
+    }
+
+    .sharing-toolbar-twitter {
+      &:before{
+        @include icon-large-twitter;
+      }
+    }
+
+    .sharing-toolbar-google {
+      &:before{
+        @include icon-large-googleplus;
+      }
+    }
+
+    .sharing-toolbar-more {
+      &:before{
+        @include icon-large-more;
+      }
+    }
+  }
+}

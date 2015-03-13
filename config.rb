@@ -40,8 +40,8 @@ configure :development do
   activate :livereload
 end
 
-if defined?(React)
-  activate :react
+activate :react do |config|
+  config.harmony = true
 end
 
 activate :i18n
@@ -78,9 +78,7 @@ configure :build do
 end
 
 after_configuration do
-  if defined?(React)
-    react_path = ::React::Source.bundled_path_for("react.js")
-    sprockets.append_path File.dirname(react_path)
-  end
+  react_path = ::React::Source.bundled_path_for("react.js")
+  sprockets.append_path File.dirname(react_path)
   sprockets.append_path "templates"
 end

@@ -1,4 +1,5 @@
 //= require jquery
+//= require react-with-addons
 //= require vendor_libs
 //= require sparkle_namespace
 //= require_tree ../templates

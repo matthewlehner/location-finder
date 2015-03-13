@@ -13,7 +13,7 @@ class Sparkle.GoogleMaps
   @loadMapScript: (callback) ->
     script = document.createElement("script")
     script.type = "text/javascript"
-    params = "?v=3.18&libraries=places,geometry&callback=#{callback}"
+    params = "?libraries=places,geometry&callback=#{callback}"
     script.src = "//maps.googleapis.com/maps/api/js#{params}"
     document.body.appendChild(script)
 

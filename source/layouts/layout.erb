@@ -15,16 +15,12 @@
   <%= javascript_include_tag 'application' %>
 </head>
 <body class="three-columns fullsite" id="locations">
-  <%= partial "navigation" %>
   <article class="leaf" id="locations_index">
-    <%= partial "content_header" %>
-    <%# <%= yield :intro %>
     <div class="container">
       <div class="content">
         <%= yield %>
       </div>
     </div>
   </article>
-  <%= partial "footer" %>
 </body>
 </html>

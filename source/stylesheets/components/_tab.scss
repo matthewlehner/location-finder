@@ -31,7 +31,7 @@
   }
 }
 
-[aria-hidden="true"] {
+.tab-panel[aria-hidden="true"] {
   display: none !important;
   visibility: hidden !important;
 }

@@ -273,7 +273,7 @@
   }
 
   dt{
-    @extend .results-kicker;
+    @extend %results-kicker;
   }
 
   @include media($mobile) {

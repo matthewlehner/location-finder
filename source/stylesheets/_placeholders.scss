@@ -43,3 +43,13 @@
   font-size: $baseFontSize + 2;
   margin: 0;
 }
+
+%results-kicker {
+  @include span-columns( 9 of 9);
+  margin-bottom: 0;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 0.5em;
+}

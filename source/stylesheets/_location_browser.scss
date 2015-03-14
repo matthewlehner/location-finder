@@ -7,6 +7,7 @@ $topNavBgColor: #B8E9FC;
   @include span-columns(12);
   height: 544px;
   margin-bottom: 20px;
+  margin-top: 40px;
   overflow: hidden;
   position: relative;
 
@@ -40,17 +41,41 @@ $topNavBgColor: #B8E9FC;
 
 .lb-nav {
   @include span-columns(4, block-collapse);
+
+  border: $defaultBorder;
   height: 100%;
-  overflow-y: scroll;
 
   @include media($mobile) {
     @include span-columns(4);
   }
 
-  a, .selected, .lb-nav-all, .lb-location-info-pane {
-    display: block;
-    padding: 20px 26px 20px 20px;
-    position: relative;
+  header, form, li {
+    padding: 10px 20px;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  input {
+    border: none;
+    box-shadow: none;
+    padding-right: 0;
+    padding-left: 10px;
+    display: table-cell;
+    font-size: 15px;
+    width: 100%;
+  }
+
+  label {
+    display: table;
+    width: 100%;
+
+    span {
+      display: table-cell;
+      font-size: 14px;
+      width: em(40);
+    }
   }
 }
 
@@ -114,43 +139,9 @@ $topNavBgColor: #B8E9FC;
 }
 
 .lb-search {
-  @include span-columns(8);
-
-  @include media($mobile) {
-   display: none;
-  }
-
-  @include transition(top 0.2s ease-out);
-
-  background: transparentize(#ACDEF5, 0.1);
-  margin-right: 0;
-  padding: 20px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1000;
-
-  &.lb-search-hidden {
-    top: -70px;
-  }
-}
-
-.lb-location-input {
-  @include span-columns(6 of 8);
-
-  label {
-    @include span-columns(1 of 6);
-  }
-
-  input {
-    @include span-columns(5 of 6);
-    border: none;
-    box-shadow: none;
-    line-height: 1.85em;
-    outline: none;
-    padding: 0;
-    background: none;
-  }
+  border-top: $defaultBorder;
+  border-bottom: $defaultBorder;
+  padding: 10px 20px;
 }
 
 .lb-search-controls {

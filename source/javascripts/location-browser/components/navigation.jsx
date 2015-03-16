@@ -1,9 +1,16 @@
 LocationBrowser = React.createClass({
   render: function () {
+    var searchForm;
+    if (!this.props.root) {
+      searchForm = <LocationSearchForm/>
+    } else {
+      searchForm = ""
+    }
+
     return (
       <div>
         <LocationHeader location={this.props.root}/>
-        <LocationSearchForm/>
+        {searchForm}
         <LocationNavList locations={this.props.locations}/>
       </div>
     );

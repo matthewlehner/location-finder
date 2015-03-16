@@ -5,4 +5,5 @@
 #= require_tree ./routers
 
 $ ->
-  Sparkle.mapApp = new Sparkle.Routers.Map
+  Sparkle.locationFinder = new Sparkle.Routers.LocationFinder()
+  Backbone.history.start()

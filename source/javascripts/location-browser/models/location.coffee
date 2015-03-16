@@ -29,7 +29,7 @@ class Sparkle.Models.Location extends Backbone.Model
       false
 
   directChildren: ->
-    @collection.where
+    @cachedChildren ?= new Sparkle.Collections.Locations @collection.where
       parent_id: @id
 
   childrenFinder: ->

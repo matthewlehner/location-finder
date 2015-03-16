@@ -1,4 +1,10 @@
-class Sparkle.Routers.Map extends Backbone.Router
+class Sparkle.Routers.LocationFinder extends Backbone.Router
+  routes:
+    "locations/:slug": "selectLocation"
+
+  selectLocation: (slug) =>
+    console.log "Navigated to #{slug}"
+
   initialize: ->
     @container = document.getElementById('location-browser')
     return false unless @container?
@@ -11,17 +17,23 @@ class Sparkle.Routers.Map extends Backbone.Router
     @locations.fetch
       reset: true
     @locations.on 'noResults', @noResults
+    @locations.on 'reset, changeScope', @renderLocationBrowser
 
   setupViews: ->
+    @renderLocationBrowser()
+
+    unless Sparkle.currentBreakpoint is 'mobile'
+      @mapView          = new Sparkle.Views.MapCanvas collection: @locations
+
+  renderLocationBrowser: =>
+    props =
+      root: @locations.currentParent?.toJSON()
+      locations: @locations.currentList()
+
     @locationBrowser = React.render(
-      React.createElement(LocationBrowser, {collection: @locations}),
+      React.createElement(LocationBrowser, props),
       @container.firstElementChild
     )
-
-    # @locationSelector = new Sparkle.Views.LocationNavigation collection: @locations
-    unless Sparkle.currentBreakpoint is 'mobile'
-    #   @searchPanel      = new Sparkle.Views.LocationSearch collection: @locations
-      @mapView          = new Sparkle.Views.MapCanvas collection: @locations
 
   noResults: =>
     @noResults = new Sparkle.Views.LocationNoResults

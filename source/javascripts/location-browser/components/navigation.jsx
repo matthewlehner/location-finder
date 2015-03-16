@@ -1,26 +1,22 @@
 LocationBrowser = React.createClass({
-  componentDidMount: function () {
-    this.props.collection.on('reset', this.updateLocations);
-    this.props.collection.on('changeScope', this.updateLocations);
-  },
-
-  updateLocations: function (collection) {
-    if (collection) {
-      this.setProps({
-        locations: collection.currentList()
-      });
-    }
-  },
-
   render: function () {
     return (
       <div>
-        <header>
-          <h4>All Locations</h4>
-        </header>
+        <LocationHeader location={this.props.root}/>
         <LocationSearchForm/>
         <LocationNavList locations={this.props.locations}/>
       </div>
+    );
+  }
+});
+
+LocationHeader = React.createClass({
+  render: function () {
+    var headerText = this.props.location ? this.props.location.name : "All Locations"
+    return (
+      <header>
+        <h4>{headerText}</h4>
+      </header>
     );
   }
 });
@@ -47,26 +43,24 @@ LocationNavList = React.createClass({
 
   render: function () {
     var createLocation = function (location) {
-      return(<li><a href="#">{location.name}</a></li>);
+      return(<LocationNavItem location={location}/>);
     };
 
     return(
       <ul>{this.props.locations.map(createLocation)}</ul>
-      //   <li><a href="#">Hospitals</a></li>
-      //   <li><a href="#">Scripps Clinic</a></li>
-      //   <li><a href="#">Scripps Coastal Medical Center</a></li>
-      //   <li><a href="#">Specialty Centers</a></li>
-      //   <li><a href="#">Well Being Centers</a></li>
-      //   <li><a href="#">Corporate Office</a></li>
-      // </ul>
     );
   }
 });
 
 LocationNavItem = React.createClass({
+  onClick: function (e) {
+    Backbone.history.navigate(this.props.location.url, true);
+    e.preventDefault();
+  },
+
   render: function () {
     return (
-      <li><a href="#">{this.props.location.name}</a></li>
+      <li><a href="#" onClick={this.onClick}>{this.props.location.name}</a></li>
     );
   }
 });

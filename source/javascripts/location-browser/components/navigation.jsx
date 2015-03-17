@@ -61,7 +61,8 @@ LocationNavList = React.createClass({
 
 LocationNavItem = React.createClass({
   onClick: function (e) {
-    Backbone.history.navigate(this.props.location.url, true);
+    var slug = this.props.location.url.replace("/locations/", "");
+    Backbone.history.navigate(slug, true);
     e.preventDefault();
   },
 

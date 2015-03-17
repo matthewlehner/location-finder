@@ -1,9 +1,14 @@
 class Sparkle.Routers.LocationFinder extends Backbone.Router
   routes:
-    "locations/:slug": "selectLocation"
+    "": "noLocation"
+    ":slug": "selectLocation"
+
+  noLocation: =>
+    @locations.changeParent()
 
   selectLocation: (slug) =>
-    location = @locations.where(url: "/locations/" + slug)[0]
+    url = "/locations/" + slug
+    location = @locations.where(url: url)[0]
     @locations.changeParent(location)
 
   initialize: ->

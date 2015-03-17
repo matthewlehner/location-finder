@@ -6,4 +6,7 @@
 
 $ ->
   Sparkle.locationFinder = new Sparkle.Routers.LocationFinder()
-  Backbone.history.start()
+  Backbone.history.start
+    pushState: true
+    silent: false
+    root: "/locations"

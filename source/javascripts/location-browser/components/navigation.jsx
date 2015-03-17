@@ -50,7 +50,7 @@ LocationNavList = React.createClass({
 
   render: function () {
     var createLocation = function (location) {
-      return(<LocationNavItem location={location}/>);
+      return(<LocationNavItem key={location.id} location={location}/>);
     };
 
     return(

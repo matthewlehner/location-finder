@@ -84,6 +84,6 @@ class Sparkle.Collections.Locations extends Backbone.Collection
 
   currentList: ->
     if @currentParent
-      @currentParent.directChildren().toJSON()
+      @currentParent.directChildren()
     else
-      @roots().toJSON()
+      @roots()

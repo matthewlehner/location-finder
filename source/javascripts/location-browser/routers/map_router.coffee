@@ -20,16 +20,14 @@ class Sparkle.Routers.LocationFinder extends Backbone.Router
 
   initializeCollections: ->
     @locations = new Sparkle.Collections.Locations
-    @locations.fetch
-      reset: true
-    @locations.on 'noResults', @noResults
+    @locations.fetch reset: true
     @locations.on 'reset, changeScope', @renderLocationBrowser
 
   setupViews: ->
     @renderLocationBrowser()
 
     unless Sparkle.currentBreakpoint is 'mobile'
-      @mapView          = new Sparkle.Views.MapCanvas collection: @locations
+      @mapView = new Sparkle.Views.MapCanvas collection: @locations
 
   renderLocationBrowser: =>
     props =

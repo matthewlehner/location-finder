@@ -49,7 +49,7 @@ $topNavBgColor: #B8E9FC;
     @include span-columns(4);
   }
 
-  header, form, li {
+  header, li {
     padding: 10px 20px;
   }
 
@@ -139,15 +139,27 @@ $topNavBgColor: #B8E9FC;
 }
 
 .lb-search {
+  @include transition(height .2s ease-out 0s,
+                      border-bottom-color .2s ease-out 0s);
+
   border-top: $defaultBorder;
   border-bottom: $defaultBorder;
-  padding: 10px 20px;
-}
+  overflow: hidden;
 
-.lb-search-controls {
-  @include span-columns(2 of 8);
-  @include omega;
-  text-align: right;
+  &.hidden {
+    @include transition(height .2s ease-out 0s,
+                        border-bottom-color 0s ease-out .2s);
+    border-bottom-color: #FFF;
+
+    label {
+      opacity: 0;
+    }
+  }
+
+  label {
+    @include transition(opacity .1s ease-out);
+    padding: 10px 20px;
+  }
 }
 
 %lb-controls-button {
@@ -267,5 +279,43 @@ $topNavBgColor: #B8E9FC;
       background: none;
       text-decoration: underline;
     }
+  }
+}
+
+.lb-header {
+  height: 67px;
+  overflow: hidden;
+  perspective: 1000px;
+  position: relative;
+
+  h4 {
+    background: white;
+    left: 0;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.lb-header .lb-header-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-out, top .5s ease-out;
+  top: 67px;
+
+  &.lb-header-enter-active {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+.lb-header .lb-header-leave {
+  opacity: 1;
+  transition: opacity .5s ease-out, top .5s ease-out;
+  top: 0;
+
+  &.lb-header-leave-active {
+    opacity: 0.01;
+    top: -67px;
   }
 }

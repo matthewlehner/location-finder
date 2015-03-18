@@ -1,42 +1,85 @@
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
 LocationBrowser = React.createClass({
   render: function () {
-    var searchForm;
-    if (!this.props.root) {
-      searchForm = <LocationSearchForm/>
-    } else {
-      searchForm = ""
+    var navList, locationDetails;
+
+    if (this.props.locations.length > 0) {
+      navList = <LocationNavList locations={this.props.locations}/>
+    } else if (this.props.root) {
+      locationDetails = <LocationDetails {...this.props.root}/>
     }
 
     return (
       <div>
-        <LocationHeader location={this.props.root}/>
-        {searchForm}
-        <LocationNavList locations={this.props.locations}/>
+        <LocationHeader {...this.props.root}/>
+        <LocationSearchForm hidden={!!this.props.root}/>
+        {navList}
+        {locationDetails}
       </div>
+    );
+  }
+});
+
+LocationDetails = React.createClass({
+  render: function () {
+    var address = this.props.addresses[0];
+    var addressProps = {
+      streetAddress: address.address,
+      locality: address.city,
+      region: address.full_state_name,
+      regionAbbr: address.state,
+      postalCode: address.postal_code,
+      country: address.full_country_name,
+      countryAbbr: address.country
+    }
+
+    return (
+      <section className="location-details">
+        <figure>
+          <img src="http://lorempixel.com/327/119"/>
+        </figure>
+
+        <h4>Address</h4>
+        <Address {...addressProps}/>
+
+
+        <h4>Phone</h4>
+        <p>
+          <span className="phone-number value" itemProp="tel" title="858-554-9100">858-554-9100</span>
+        </p>
+
+        <a className="location-link" href="/locations/hospitals__scripps-green-hospital">View Location Page</a>
+      </section>
+    );
+  }
+});
+
+Address = React.createClass({
+  render: function () {
+    return (
+      <p className="adr" itemProp="address" itemScope="itemscope" itemType="http://data-vocabulary.org/Address/">
+        <span className="street-address" itemProp="street-address">{this.props.streetAddress}</span><br/>
+        <span className="locality" itemProp="locality">{this.props.locality}</span>,
+        <abbr className="region" itemProp="region" title={this.props.region}>{this.props.regionAbbr}</abbr>
+        <span className="postal-code" itemProp="postal-code">{this.props.postalCode}</span>
+        <abbr className="country-name" itemProp="country-name" title={this.props.country}>{this.props.countryAbbr}</abbr>
+      </p>
     );
   }
 });
 
 LocationHeader = React.createClass({
   render: function () {
-    var headerText = this.props.location ? this.props.location.name : "All Locations"
+    var headerText = this.props.name || "All Locations"
     return (
-      <header>
-        <h4>{headerText}</h4>
+      <header className="lb-header">
+          <ReactCSSTransitionGroup transitionName="lb-header">
+            <h4 key={headerText}>
+              {headerText}
+            </h4>
+          </ReactCSSTransitionGroup>
       </header>
-    );
-  }
-});
-
-LocationSearchForm = React.createClass({
-  render: function () {
-    return (
-      <form className="lb-search">
-        <label>
-          <span>Near:</span>
-          <input type="text" name="location" placeholder="Enter an address, city, or zip code"/>
-        </label>
-      </form>
     );
   }
 });

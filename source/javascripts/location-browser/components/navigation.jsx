@@ -80,13 +80,11 @@ LocationHeader = React.createClass({
   render: function () {
     var headerText = this.props.name || "All Locations"
     return (
-      <header className="lb-header">
-          <ReactCSSTransitionGroup transitionName="lb-header">
-            <h4 key={this.props.id}>
-              {headerText}
-            </h4>
-          </ReactCSSTransitionGroup>
-      </header>
+      <ReactCSSTransitionGroup component="header" className="lb-header" transitionName="lb-header">
+        <h4 key={this.props.id}>
+          {headerText}
+        </h4>
+      </ReactCSSTransitionGroup>
     );
   }
 });

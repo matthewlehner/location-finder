@@ -21,6 +21,7 @@ class Sparkle.Routers.LocationFinder extends Backbone.Router
   initializeCollections: ->
     @locations = new Sparkle.Collections.Locations
     @locations.fetch reset: true
+    # @locations.on 'noResults', @noResults
     @locations.on 'reset, changeScope', @renderLocationBrowser
 
   setupViews: ->

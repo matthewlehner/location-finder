@@ -8,7 +8,7 @@ gem "bourbon"
 gem "neat"
 gem "ejs"
 gem "sparklets", git: "git@github.com:scripps/sparklets.git", branch: "master"
-gem "middleman-react"
+gem "middleman-react", github: "matthewlehner/middleman-react"
 
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.1.0"

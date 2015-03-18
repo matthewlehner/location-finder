@@ -39,46 +39,6 @@ $topNavBgColor: #B8E9FC;
   }
 }
 
-.lb-nav {
-  @include span-columns(4, block-collapse);
-
-  border: $defaultBorder;
-  height: 100%;
-
-  @include media($mobile) {
-    @include span-columns(4);
-  }
-
-  header, li {
-    padding: 10px 20px;
-  }
-
-  form {
-    margin-bottom: 20px;
-  }
-
-  input {
-    border: none;
-    box-shadow: none;
-    padding-right: 0;
-    padding-left: 10px;
-    display: table-cell;
-    font-size: 15px;
-    width: 100%;
-  }
-
-  label {
-    display: table;
-    width: 100%;
-
-    span {
-      display: table-cell;
-      font-size: 14px;
-      width: em(40);
-    }
-  }
-}
-
 .lb-nav-all {
   background-color: $topNavBgColor;
 }
@@ -138,29 +98,6 @@ $topNavBgColor: #B8E9FC;
   }
 }
 
-.lb-search {
-  @include transition(height .2s ease-out 0s,
-                      border-bottom-color .2s ease-out 0s);
-
-  border-top: $defaultBorder;
-  border-bottom: $defaultBorder;
-  overflow: hidden;
-
-  &.hidden {
-    @include transition(height .2s ease-out 0s,
-                        border-bottom-color 0s ease-out .2s);
-    border-bottom-color: #FFF;
-
-    label {
-      opacity: 0;
-    }
-  }
-
-  label {
-    @include transition(opacity .1s ease-out);
-    padding: 10px 20px;
-  }
-}
 
 %lb-controls-button {
   @include hide-text;
@@ -282,6 +219,72 @@ $topNavBgColor: #B8E9FC;
   }
 }
 
+// NEW
+.lb-nav {
+  @include span-columns(4, block-collapse);
+
+  border: $defaultBorder;
+  height: 100%;
+  overflow-y: scroll;
+
+  @include media($mobile) {
+    @include span-columns(4);
+  }
+
+  header, li {
+    padding: 10px 20px;
+  }
+
+  ul {
+    margin-top: 20px;
+  }
+
+  input {
+    border: none;
+    box-shadow: none;
+    padding-right: 0;
+    padding-left: 10px;
+    display: table-cell;
+    font-size: 15px;
+    width: 100%;
+  }
+
+  label {
+    display: table;
+    width: 100%;
+
+    span {
+      display: table-cell;
+      font-size: 14px;
+      width: em(40);
+    }
+  }
+}
+
+.lb-search {
+  @include transition(height .2s ease-out 0s,
+                      border-top-color .2s ease-out 0s);
+
+  border-top: $defaultBorder;
+  border-bottom: $defaultBorder;
+  overflow: hidden;
+
+  &.hidden {
+    @include transition(height .2s ease-out 0s,
+                        border-top-color 0s ease-out .2s);
+    border-top-color: #FFF;
+
+    label {
+      opacity: 0;
+    }
+  }
+
+  label {
+    @include transition(opacity .1s ease-out);
+    padding: 10px 20px;
+  }
+}
+
 .lb-header {
   height: 67px;
   overflow: hidden;
@@ -317,5 +320,28 @@ $topNavBgColor: #B8E9FC;
   &.lb-header-leave-active {
     opacity: 0.01;
     top: -67px;
+  }
+}
+
+.lb-details {
+  figure {
+    height: 119px;
+  }
+}
+
+.lb-details-inner {
+  $top-spacing: 2.1em;
+  margin: 15px;
+  line-height: 1;
+
+  h5 {
+    color: darken($silver, 19%);
+    margin-bottom: 1.2em;
+    margin-top: $top-spacing;
+  }
+
+  .location-link {
+    display: block;
+    margin-top: $top-spacing;
   }
 }

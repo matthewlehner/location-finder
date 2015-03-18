@@ -34,22 +34,29 @@ LocationDetails = React.createClass({
       countryAbbr: address.country
     }
 
-    return (
-      <section className="location-details">
+    var locationImage;
+    if (!!this.props.thumbnail) {
+      locationImage = (
         <figure>
-          <img src="http://lorempixel.com/327/119"/>
+          <img src={this.props.thumbnail.replace("ptn_","")}/>
         </figure>
+      );
+    }
 
-        <h4>Address</h4>
-        <Address {...addressProps}/>
+    return (
+      <section className="lb-details">
+        {locationImage}
 
+        <div className="lb-details-inner">
+          <h5>Address</h5>
+          <Address {...addressProps}/>
 
-        <h4>Phone</h4>
-        <p>
+          <h5>Phone</h5>
           <span className="phone-number value" itemProp="tel" title="858-554-9100">858-554-9100</span>
-        </p>
 
-        <a className="location-link" href="/locations/hospitals__scripps-green-hospital">View Location Page</a>
+          <a className="location-link" href="/locations/hospitals__scripps-green-hospital">View Location Page</a>
+          <hr/>
+        </div>
       </section>
     );
   }
@@ -58,13 +65,12 @@ LocationDetails = React.createClass({
 Address = React.createClass({
   render: function () {
     return (
-      <p className="adr" itemProp="address" itemScope="itemscope" itemType="http://data-vocabulary.org/Address/">
+      <div className="adr" itemProp="address" itemScope="itemscope" itemType="http://data-vocabulary.org/Address/">
         <span className="street-address" itemProp="street-address">{this.props.streetAddress}</span><br/>
         <span className="locality" itemProp="locality">{this.props.locality}</span>,
-        <abbr className="region" itemProp="region" title={this.props.region}>{this.props.regionAbbr}</abbr>
-        <span className="postal-code" itemProp="postal-code">{this.props.postalCode}</span>
+        <abbr className="region" itemProp="region" title={this.props.region}>{this.props.regionAbbr}</abbr> <span className="postal-code" itemProp="postal-code">{this.props.postalCode}</span>
         <abbr className="country-name" itemProp="country-name" title={this.props.country}>{this.props.countryAbbr}</abbr>
-      </p>
+      </div>
     );
   }
 });
@@ -75,7 +81,7 @@ LocationHeader = React.createClass({
     return (
       <header className="lb-header">
           <ReactCSSTransitionGroup transitionName="lb-header">
-            <h4 key={headerText}>
+            <h4 key={this.props.id}>
               {headerText}
             </h4>
           </ReactCSSTransitionGroup>

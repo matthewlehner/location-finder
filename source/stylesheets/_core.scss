@@ -35,10 +35,11 @@ i, em {
   font-style:italic;
 }
 
-hr { 
+hr {
+  border-style: none;
   border-bottom: $defaultBorder;
   clear: both;
-  margin: 10px 0 30px;
+  margin: 20px 0 30px;
   height: 0;
 }
 

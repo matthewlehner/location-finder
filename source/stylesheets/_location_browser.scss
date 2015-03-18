@@ -301,6 +301,10 @@ $topNavBgColor: #B8E9FC;
   }
 }
 
+// ==================
+// ==  Animations  ==
+// ==================
+
 .lb-header .lb-header-enter {
   opacity: 0.01;
   transition: opacity .5s ease-out, top .5s ease-out;
@@ -321,6 +325,29 @@ $topNavBgColor: #B8E9FC;
     opacity: 0.01;
     top: -67px;
   }
+}
+
+// List Animation
+
+.lb-list {
+  position: relative;
+  @include transition(left .3s ease);
+}
+
+.lb-list-enter {
+  left: 100%;
+}
+
+.lb-list-enter-active {
+  left: 0;
+}
+
+.lb-list-leave {
+  left: 0;
+}
+
+.lb-list-leave-active {
+  left: -100%;
 }
 
 .lb-details {

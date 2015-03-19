@@ -1,7 +1,7 @@
 class Sparkle.Collections.Locations extends Backbone.Collection
   model: Sparkle.Models.Location
 
-  url: 'locations.json'
+  url: '/locations.json'
 
   initialize: (options) =>
     @currentParent = options?['parent']

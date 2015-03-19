@@ -8,8 +8,7 @@ class Sparkle.Routers.LocationFinder extends Backbone.Router
 
   selectLocation: (slug) =>
     url = "/locations/" + slug
-    location = @locations.where(url: url)[0]
-    @locations.changeParent(location)
+    @locations.changeParent(url: url)
 
   initialize: ->
     @container = document.getElementById('location-browser')

@@ -42,11 +42,12 @@ class Sparkle.Collections.Locations extends Backbone.Collection
       @trigger 'changeScope'
 
   clearScope: =>
+    @currentParent = @findWhere(@parentParams)
     delete @currentScope
     @trigger 'changeScope'
 
-  changeParent: (model) =>
-    @currentParent = model
+  changeParent: (params) =>
+    @parentParams = params
     @clearScope()
 
   changeToParent: (model) =>

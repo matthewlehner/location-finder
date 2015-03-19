@@ -6,7 +6,7 @@ class Sparkle.GoogleMaps
       _.extend Sparkle,
         mapsLoaded : ->
           $(document).trigger 'mapsLoaded'
-          delete Sparkle['mapsLoaded']
+          Sparkle['mapsLoaded'] = null
 
       @loadMapScript('Sparkle.mapsLoaded')
 
@@ -32,13 +32,13 @@ class Sparkle.GoogleMaps
       bounds.extend new google.maps.LatLng(32.528832, -117.611081) #SW
 
       options =
-        types: ['geocode']
+        types: ['geocode', 'establishment']
         componentRestrictions:
           country: 'us'
         bounds: bounds
 
       parentScope.autocomplete = new google.maps.places.Autocomplete( input, options )
-      delete @['initAutoComplete']
+      @['initAutoComplete'] = null
 
     Sparkle.GoogleMaps.onMapsLoaded @initAutoComplete
 

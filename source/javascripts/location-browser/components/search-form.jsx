@@ -4,9 +4,9 @@ LocationSearchForm = React.createClass({
   },
 
   componentDidMount: function () {
-    this.originalelHeight = React.findDOMNode(this).offsetHeight;
+    this.originalElHeight = React.findDOMNode(this).offsetHeight;
     this.setState({
-      height: this.originalelHeight
+      height: this.originalElHeight
     });
   },
 
@@ -17,7 +17,7 @@ LocationSearchForm = React.createClass({
       });
     } else {
       this.setState({
-        height: this.originalelHeight
+        height: this.originalElHeight
       });
     }
   },
@@ -39,6 +39,15 @@ LocationSearchForm = React.createClass({
           <span>Near:</span>
           <input type="text" name="location" placeholder="Enter an address, city, or zip code"/>
         </label>
+        <ReactCSSTransitionGroup className="lb-range-select" component="label">
+          <span>Range:</span>
+          <select name="range">
+            <option value="1">1 mile</option>
+            <option value="5" selected>5 miles</option>
+            <option value="10">10 miles</option>
+            <option value="15">15 miles</option>
+          </select>
+        </ReactCSSTransitionGroup>
       </form>
     );
   }

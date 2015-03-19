@@ -239,14 +239,17 @@ $topNavBgColor: #B8E9FC;
     margin-top: 20px;
   }
 
+  input, select {
+    box-shadow: none;
+    display: table-cell;
+    width: 100%;
+  }
+
   input {
     border: none;
-    box-shadow: none;
+    font-size: 15px;
     padding-right: 0;
     padding-left: 10px;
-    display: table-cell;
-    font-size: 15px;
-    width: 100%;
   }
 
   label {
@@ -257,6 +260,16 @@ $topNavBgColor: #B8E9FC;
       display: table-cell;
       font-size: 14px;
       width: em(40);
+    }
+  }
+
+  .lb-range-select {
+    span {
+      width: em(60);
+    }
+
+    select {
+      width: 90%;
     }
   }
 }

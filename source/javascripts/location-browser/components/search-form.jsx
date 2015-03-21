@@ -4,7 +4,8 @@ LocationSearchForm = React.createClass({
   },
 
   componentDidMount: function () {
-    this.originalElHeight = React.findDOMNode(this).offsetHeight;
+    var el = React.findDOMNode(this)
+    this.originalElHeight = el.offsetHeight;
     this.setState({
       height: this.originalElHeight
     });
@@ -22,6 +23,10 @@ LocationSearchForm = React.createClass({
     }
   },
 
+  handleSubmit: function (e) {
+    e.preventDefault();
+  },
+
   render: function () {
     var formStyle = {
       height: this.state.height,
@@ -34,21 +39,53 @@ LocationSearchForm = React.createClass({
     }
 
     return (
-      <form style={formStyle} className={className}>
+      <form style={formStyle} className={className} onSubmit={this.handleSubmit}>
         <label>
           <span>Near:</span>
-          <input type="text" name="location" placeholder="Enter an address, city, or zip code"/>
+          <InputWithPlaceAutocomplete/>
         </label>
-        <ReactCSSTransitionGroup className="lb-range-select" component="label">
+        <ReactCSSTransitionGroup transitionName="lb-range-select" className="lb-range-select" component="label">
           <span>Range:</span>
-          <select name="range">
+          <select name="range" value="5">
             <option value="1">1 mile</option>
-            <option value="5" selected>5 miles</option>
+            <option value="5">5 miles</option>
             <option value="10">10 miles</option>
             <option value="15">15 miles</option>
           </select>
         </ReactCSSTransitionGroup>
       </form>
+    );
+  }
+});
+
+InputWithPlaceAutocomplete = React.createClass({
+  componentDidMount: function () {
+    var el = React.findDOMNode(this)
+    Sparkle.GoogleMaps.addAutoCompleteToField(el, this);
+    var self = this;
+    Sparkle.GoogleMaps.onMapsLoaded(function () {
+      google.maps.event.addListener(self.autocomplete, 'place_changed', self.search);
+    });
+  },
+
+  search: function () {
+    var place = this.autocomplete.getPlace();
+
+    if (place.geometry == null) {
+      return;
+    }
+
+    var latLng = place.geometry.location.toUrlValue();
+    var name = encodeURIComponent(React.findDOMNode(this).value);
+    var queryString = "?geo=" + latLng + "&q=" + name;
+    Backbone.history.navigate(queryString, true);
+  },
+
+  render: function () {
+    return (
+      <input type="text"
+             name="location"
+             placeholder="Enter an address, city, or zip code"/>
     );
   }
 });

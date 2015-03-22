@@ -1,19 +1,6 @@
 class Sparkle.Models.Location extends Backbone.Model
-  initialize: ->
-    @collection.on 'clearSearch', =>
-      @set
-        visible: true
-
-  defaults: 
-    'visible': true
-
   withinDistance: ->
-    if @childrenWithinDistance()
-      return true
-    else if @addressesWithinDistance().length >= 1
-      true
-    else
-      false
+    @childrenWithinDistance() or (@addressesWithinDistance().length > 0)
 
   childrenWithinDistance: ->
     if @hasChildren() and @collection
@@ -21,7 +8,7 @@ class Sparkle.Models.Location extends Backbone.Model
 
       for location_id in @get('descendant_ids') when childNearby is false
         location = @collection.get location_id
-        childNearby = location?.addressesWithinDistance().length >= 1
+        childNearby = location?.addressesWithinDistance().length > 0
 
       return childNearby
 
@@ -38,7 +25,7 @@ class Sparkle.Models.Location extends Backbone.Model
       return location.get('parent_id') is @id
 
   isRoot: ->
-    return !@get('parent_id')?
+    return true if not @get('parent_id')?
 
   parent: ->
     return null if @isRoot()
@@ -52,8 +39,8 @@ class Sparkle.Models.Location extends Backbone.Model
       latLng = @collection.searchParams['location']
       meters = @collection.searchParams['distance'] * 1609.34
       _.filter @get('addresses'), (address) ->
-          locationLatLng = new google.maps.LatLng address['lat'], address['lng']
-          google.maps.geometry.spherical.computeDistanceBetween(locationLatLng, latLng) < meters
+        locationLatLng = new google.maps.LatLng address['lat'], address['lng']
+        google.maps.geometry.spherical.computeDistanceBetween(locationLatLng, latLng) < meters
 
     else
       @get('addresses')

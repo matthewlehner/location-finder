@@ -8,52 +8,29 @@ class Sparkle.Collections.Locations extends Backbone.Collection
 
     @on 'search', @search
     @on 'reset', @clearScope
-    @on 'selectLocation', @changeParent
-    @on 'unselectLocation', @changeToParent
     @on 'clearSearch', @clearSearch
 
   search: (params) =>
     @searchParams = params
     @searchScope = @filter (location) ->
-
-      if location.withinDistance()
-        location.set
-          visible: true
-        return true
-      else
-        location.set
-          visible: false
-        return false
+      location.withinDistance()
 
     if _.intersection(@currentScope, @searchScope).length > 0
       @trigger 'changeScope'
     else
-      delete @searchParams
-      delete @searchScope
       @trigger 'noResults'
+      @clearSearch()
 
   clearSearch: =>
     unless _.isEmpty @searchScope
-      delete @searchParams
-      delete @searchScope
-      @forEach (location) ->
-        location.set
-          visible: true
+      @searchParams = null
+      @searchScope = null
       @trigger 'changeScope'
 
   clearScope: =>
     @currentParent = @findWhere(@parentParams)
-    delete @currentScope
+    @currentScope = null
     @trigger 'changeScope'
-
-  changeParent: (params) =>
-    @parentParams = params
-    @clearScope()
-
-  changeToParent: (model) =>
-    @currentParent = model.parent()
-    @trigger 'noLocationSelected' unless @currentParent?
-    @clearScope()
 
   scopedLocations: ->
     @currentScope ?= @getScope()
@@ -79,12 +56,7 @@ class Sparkle.Collections.Locations extends Backbone.Collection
     else
       @models
 
-  roots: =>
-    new Sparkle.Collections.Locations @filter (location) ->
-      !location.get('parent_id')?
-
   currentList: ->
-    if @currentParent
-      @currentParent.directChildren()
-    else
-      @roots()
+    # This needs to return a scoped list based on parent and search results
+    new Sparkle.Collections.Locations @where
+      parent_id: @currentParent?.get('id')

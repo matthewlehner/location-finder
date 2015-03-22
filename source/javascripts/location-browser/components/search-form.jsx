@@ -75,10 +75,14 @@ InputWithPlaceAutocomplete = React.createClass({
       return;
     }
 
-    var latLng = place.geometry.location.toUrlValue();
-    var name = encodeURIComponent(React.findDOMNode(this).value);
-    var queryString = "?geo=" + latLng + "&q=" + name;
-    Backbone.history.navigate(queryString, true);
+    var params = {
+      lat: place.geometry.location.lat(),
+      lng: place.geometry.location.lng(),
+      name: React.findDOMNode(this).value
+    }
+
+    var url = "?" + queryString.stringify(params);
+    Backbone.history.navigate(url, true);
   },
 
   render: function () {

@@ -15,10 +15,6 @@ class Sparkle.Models.Location extends Backbone.Model
     else
       false
 
-  directChildren: ->
-    @cachedChildren ?= new Sparkle.Collections.Locations @collection.where
-      parent_id: @id
-
   childrenFinder: ->
     return [] unless @collection?
     @collection.filter (location) =>

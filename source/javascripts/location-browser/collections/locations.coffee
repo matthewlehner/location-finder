@@ -3,11 +3,9 @@ class Sparkle.Collections.Locations extends Backbone.Collection
 
   url: '/locations.json'
 
-  initialize: (options) =>
-    @currentParent = options?['parent']
-
+  initialize: ->
     @on 'search', @search
-    @on 'reset', @clearScope
+    @on 'reset', @resetScope
     @on 'clearSearch', @clearSearch
 
   search: (params) =>
@@ -26,11 +24,6 @@ class Sparkle.Collections.Locations extends Backbone.Collection
       @searchParams = null
       @searchScope = null
       @trigger 'changeScope'
-
-  clearScope: =>
-    @currentParent = @findWhere(@parentParams)
-    @currentScope = null
-    @trigger 'changeScope'
 
   scopedLocations: ->
     @currentScope ?= @getScope()
@@ -55,6 +48,15 @@ class Sparkle.Collections.Locations extends Backbone.Collection
         @get(id)
     else
       @models
+
+  resetScope: =>
+    @currentParent = @findWhere(@parentParams)
+    @currentScope = null
+    @trigger 'changeScope'
+
+  changeParent: (params) ->
+    @parentParams = params
+    @resetScope()
 
   currentList: ->
     # This needs to return a scoped list based on parent and search results

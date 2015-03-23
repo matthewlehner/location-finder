@@ -46,11 +46,11 @@ LocationSearchForm = React.createClass({
         </label>
         <ReactCSSTransitionGroup transitionName="lb-range-select" className="lb-range-select" component="label">
           <span>Range:</span>
-          <select name="range" value="5">
-            <option value="1">1 mile</option>
-            <option value="5">5 miles</option>
-            <option value="10">10 miles</option>
-            <option value="15">15 miles</option>
+          <select name="range" value="8047">
+            <option value="1610">1 mile</option>
+            <option value="8047">5 miles</option>
+            <option value="16094">10 miles</option>
+            <option value="24140">15 miles</option>
           </select>
         </ReactCSSTransitionGroup>
       </form>

@@ -1,30 +1,31 @@
 class Sparkle.Routers.LocationFinder extends Backbone.Router
   routes:
     "": "noLocation"
-    ":slug(?geo=:latLng&q=:q)": "selectLocation"
+    ":slug": "selectLocation"
 
-  noLocation: =>
+  noLocation: (queryParams) =>
+    @parseQueryParams(queryParams)
     @locations.changeParent()
 
-  selectLocation: (slug, latLng, name) =>
+  selectLocation: (slug, queryParams) =>
+    @parseQueryParams(queryParams)
     url = "/locations/" + slug
     @locations.changeParent(url: url)
+
+  parseQueryParams: (queryParams) ->
+    {lat, lng, name} = queryString.parse(queryParams)
+    if lat? and lng?
+      latLng = new google?.maps.LatLng lat, lng
+      range = 8047
+      @locations.changeSearchParams(latLng, range)
 
   initialize: ->
     @container = document.getElementById('location-browser')
     return false unless @container?
 
-    @initializeCollections()
-    @setupViews()
-
-  initializeCollections: ->
     @locations = new Sparkle.Collections.Locations
     @locations.fetch reset: true
-    # @locations.on 'noResults', @noResults
     @locations.on 'reset, changeScope', @renderLocationBrowser
-
-  setupViews: ->
-    @renderLocationBrowser()
 
     unless Sparkle.currentBreakpoint is 'mobile'
       @mapView = new Sparkle.Views.MapCanvas collection: @locations

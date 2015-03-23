@@ -5,7 +5,6 @@ LocationBrowser = React.createClass({
     var navList, locationDetails;
 
     if (this.props.locations.length > 0) {
-
       navList = <LocationNavList locations={this.props.locations}/>
     } else if (this.props.root) {
       locationDetails = <ReactCSSTransitionGroup transitionName="lb-list" component={LocationDetails} {...this.props.root}/>

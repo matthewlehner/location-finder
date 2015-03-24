@@ -305,12 +305,21 @@ $topNavBgColor: #B8E9FC;
   position: relative;
 
   h4 {
-    background: white;
     left: 0;
     padding: 10px 20px;
     position: absolute;
     top: 0;
     width: 100%;
+
+  }
+
+  i {
+    color: $bodyLinkColor;
+    font-size: 14px;
+
+    &:before {
+      width: 30px;
+    }
   }
 }
 
@@ -318,25 +327,27 @@ $topNavBgColor: #B8E9FC;
 // ==  Animations  ==
 // ==================
 
-.lb-header .lb-header-enter {
-  opacity: 0.01;
-  transition: opacity .5s ease-out, top .5s ease-out;
-  top: 67px;
-
-  &.lb-header-enter-active {
-    opacity: 1;
-    top: 0;
-  }
-}
-
-.lb-header .lb-header-leave {
-  opacity: 1;
-  transition: opacity .5s ease-out, top .5s ease-out;
-  top: 0;
-
-  &.lb-header-leave-active {
+.lb-header {
+  .lb-header-enter {
     opacity: 0.01;
-    top: -67px;
+    transition: opacity .5s ease-out, transform .5s ease-out;
+    @include transform(translateY(120%));
+
+    &.lb-header-enter-active {
+      opacity: 1;
+      @include transform(translateY(0%));
+    }
+  }
+
+  .lb-header-leave {
+    opacity: 1;
+    transition: opacity .5s ease-out, transform .5s ease-out;
+    @include transform(translateY(0%));
+
+    &.lb-header-leave-active {
+      opacity: 0.01;
+      @include transform(translateY(-120%));
+    }
   }
 }
 

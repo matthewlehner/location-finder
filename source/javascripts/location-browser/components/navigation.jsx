@@ -76,11 +76,24 @@ Address = React.createClass({
 });
 
 LocationHeader = React.createClass({
+  navBack: function (e) {
+    var slug,
+    parent = Sparkle.locationFinder.locations.currentParent.parent();
+    if (parent) {
+      slug = parent.get('url').replace("/locations/", "");
+    } else {
+      slug = "";
+    }
+    Backbone.history.navigate(slug, true);
+  },
+
   render: function () {
     var headerText = this.props.name || "All Locations"
+    var backButton = this.props.name ? <i className="icon-arrow-past" onClick={this.navBack}></i> : null
     return (
       <ReactCSSTransitionGroup component="header" className="lb-header" transitionName="lb-header">
         <h4 key={this.props.id}>
+          {backButton}
           {headerText}
         </h4>
       </ReactCSSTransitionGroup>

@@ -4,20 +4,17 @@ class Sparkle.Routers.LocationFinder extends Backbone.Router
     ":slug": "selectLocation"
 
   noLocation: (queryParams) =>
-    @parseQueryParams(queryParams)
-    @locations.changeParent()
+    @locations.changeScopeParams null, @parseQueryParams(queryParams)
 
   selectLocation: (slug, queryParams) =>
-    @parseQueryParams(queryParams)
-    url = "/locations/" + slug
-    @locations.changeParent(url: url)
+    parentParams = url: "/locations/#{slug}"
+    @locations.changeScopeParams parentParams, @parseQueryParams(queryParams)
 
   parseQueryParams: (queryParams) ->
     {lat, lng, name} = queryString.parse(queryParams)
     if lat? and lng?
-      latLng = new google?.maps.LatLng lat, lng
-      range = 8047
-      @locations.changeSearchParams(latLng, range)
+      latLng: new google?.maps.LatLng lat, lng
+      range: 8047 # locked to 5 miles right now
 
   initialize: ->
     @container = document.getElementById('location-browser')

@@ -28,7 +28,9 @@ class Sparkle.Models.Location extends Backbone.Model
     @get('descendant_ids').length > 0
 
   addressesWithinDistance: () ->
-    {latLng, range} = @collection.searchParams
+    if @collection.searchParams?
+      {latLng, range} = @collection.searchParams
+
     if latLng and range
       _.filter @get('addresses'), (address) ->
         locationLatLng = new google.maps.LatLng address['lat'], address['lng']

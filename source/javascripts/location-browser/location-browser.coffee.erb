@@ -5,6 +5,32 @@
 #= require_tree ./routers
 
 $ ->
+  urlBuilder = (parentParams, searchParams) ->
+    path = switch
+      when parentParams.url? then parentParams.url.replace("/locations", "")
+      when parentParams.id?
+        parent = Sparkle.locationFinder.locations.get(parentParams.id)
+        parent.get('url').replace("/locations", "")
+      else ""
+
+    return path
+
+  window.locationFinder = locationFinder =
+    updateUrl: (params) ->
+      {parentParams, searchParams} = params
+      url = urlBuilder(parentParams, searchParams)
+
+      Backbone.history.navigate(url, true);
+
+  _.extend(locationFinder, Backbone.Events)
+
+  locationFinder.on
+    'changeParent': (parentParams) ->
+      @updateUrl(parentParams: parentParams)
+
+    'setSearchParams': (searchParams) ->
+      @updateUrl(searchParams: searchParams)
+
   Sparkle.locationFinder = new Sparkle.Routers.LocationFinder()
   Backbone.history.start
     # pushState: true

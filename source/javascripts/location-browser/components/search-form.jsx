@@ -81,8 +81,7 @@ InputWithPlaceAutocomplete = React.createClass({
       name: React.findDOMNode(this).value
     }
 
-    var url = "?" + queryString.stringify(params);
-    Backbone.history.navigate(url, true);
+    locationFinder.trigger('setSearchParams', params)
   },
 
   render: function () {

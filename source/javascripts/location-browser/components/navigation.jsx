@@ -77,14 +77,7 @@ Address = React.createClass({
 
 LocationHeader = React.createClass({
   navBack: function (e) {
-    var slug,
-    parent = Sparkle.locationFinder.locations.currentParent.parent();
-    if (parent) {
-      slug = parent.get('url').replace("/locations/", "");
-    } else {
-      slug = "";
-    }
-    Backbone.history.navigate(slug, true);
+    locationFinder.trigger('changeParent', {id: this.props.parent_id})
   },
 
   render: function () {
@@ -121,8 +114,7 @@ LocationNavList = React.createClass({
 
 LocationNavItem = React.createClass({
   onClick: function (e) {
-    var slug = this.props.location.url.replace("/locations/", "");
-    Backbone.history.navigate(slug, true);
+    locationFinder.trigger('changeParent', {url: this.props.location.url});
     e.preventDefault();
   },
 

@@ -9,11 +9,17 @@ window.LocationSearchForm = React.createClass({
   },
 
   componentDidMount: function () {
-    var el = React.findDOMNode(this)
-    this.originalElHeight = el.offsetHeight;
-    this.setState({
-      height: this.originalElHeight
-    });
+    if (this.props.hidden) {
+      this.setState({
+        height: "0"
+      });
+    } else {
+      var el = React.findDOMNode(this)
+      this.originalElHeight = el.offsetHeight;
+      this.setState({
+        height: this.originalElHeight
+      });
+    }
   },
 
   componentWillReceiveProps: function (nextProps) {

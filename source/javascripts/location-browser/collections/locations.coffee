@@ -12,17 +12,10 @@ class Sparkle.Collections.Locations extends Backbone.Collection
     @currentScope = null
     @trigger 'changeScope'
 
-  changeParent: (params) ->
-    @parentParams = params
+  changeParent: (@parentParams) ->
     @resetScope()
 
-  changeSearchParams: (latLng, range) ->
-    @searchParams =
-      latLng: latLng
-      range: range
-    @resetScope()
-
-  changeScopeParams: (@parentParams, @searchParams) ->
+  changeSearchParams: (@searchParams) ->
     @resetScope()
 
   currentList: ->

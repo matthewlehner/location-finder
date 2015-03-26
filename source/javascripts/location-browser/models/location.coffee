@@ -31,7 +31,7 @@ class Sparkle.Models.Location extends Backbone.Model
     if @collection.searchParams?
       {latLng, range} = @collection.searchParams
 
-    if latLng and range
+    if latLng? and range?
       _.filter @get('addresses'), (address) ->
         locationLatLng = new google.maps.LatLng address['lat'], address['lng']
         google.maps.geometry.spherical.computeDistanceBetween(locationLatLng, latLng) < range

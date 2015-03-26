@@ -1,6 +1,9 @@
+(function () {
+'use strict';
+
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
-LocationBrowser = React.createClass({
+window.LocationBrowser = React.createClass({
   render: function () {
     var navList, locationDetails;
 
@@ -21,7 +24,7 @@ LocationBrowser = React.createClass({
   }
 });
 
-LocationDetails = React.createClass({
+var LocationDetails = React.createClass({
   render: function () {
     var address = this.props.addresses[0];
     var addressProps = {
@@ -62,7 +65,7 @@ LocationDetails = React.createClass({
   }
 });
 
-Address = React.createClass({
+var Address = React.createClass({
   render: function () {
     return (
       <div className="adr" itemProp="address" itemScope="itemscope" itemType="http://data-vocabulary.org/Address/">
@@ -75,7 +78,7 @@ Address = React.createClass({
   }
 });
 
-LocationHeader = React.createClass({
+var LocationHeader = React.createClass({
   navBack: function (e) {
     locationFinder.trigger('changeParent', {id: this.props.parent_id})
   },
@@ -94,7 +97,7 @@ LocationHeader = React.createClass({
   }
 });
 
-LocationNavList = React.createClass({
+var LocationNavList = React.createClass({
   getDefaultProps: function () {
     return {
       locations: []
@@ -112,7 +115,7 @@ LocationNavList = React.createClass({
   }
 });
 
-LocationNavItem = React.createClass({
+var LocationNavItem = React.createClass({
   onClick: function (e) {
     locationFinder.trigger('changeParent', {url: this.props.location.url});
     e.preventDefault();
@@ -124,3 +127,5 @@ LocationNavItem = React.createClass({
     );
   }
 });
+
+})();

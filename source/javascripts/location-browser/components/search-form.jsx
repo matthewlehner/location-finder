@@ -1,4 +1,9 @@
-LocationSearchForm = React.createClass({
+(function () {
+'use strict';
+
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
+window.LocationSearchForm = React.createClass({
   getInitialState: function () {
     return {height: "auto"}
   },
@@ -44,21 +49,14 @@ LocationSearchForm = React.createClass({
           <span>Near:</span>
           <InputWithPlaceAutocomplete/>
         </label>
-        <ReactCSSTransitionGroup transitionName="lb-range-select" className="lb-range-select" component="label">
-          <span>Range:</span>
-          <select name="range" value="8047">
-            <option value="1610">1 mile</option>
-            <option value="8047">5 miles</option>
-            <option value="16094">10 miles</option>
-            <option value="24140">15 miles</option>
-          </select>
-        </ReactCSSTransitionGroup>
+        <ReactCSSTransitionGroup transitionName="lb-range-select"
+                                 component={RangeSelect}/>
       </form>
     );
   }
 });
 
-InputWithPlaceAutocomplete = React.createClass({
+var InputWithPlaceAutocomplete = React.createClass({
   componentDidMount: function () {
     var el = React.findDOMNode(this)
     Sparkle.GoogleMaps.addAutoCompleteToField(el, this);
@@ -71,9 +69,7 @@ InputWithPlaceAutocomplete = React.createClass({
   search: function () {
     var place = this.autocomplete.getPlace();
 
-    if (place.geometry == null) {
-      return;
-    }
+    if (place.geometry == null) { return };
 
     var params = {
       lat: place.geometry.location.lat(),
@@ -88,7 +84,36 @@ InputWithPlaceAutocomplete = React.createClass({
     return (
       <input type="text"
              name="location"
-             placeholder="Enter an address, city, or zip code"/>
+             placeholder="Enter an address, city, or zip code" />
     );
   }
 });
+
+var RangeSelect = React.createClass({
+  getInitialState: function () {
+    return { value: "8047" }
+  },
+
+  handleChange: function (event) {
+    this.setState({value: event.target.value});
+    locationFinder.trigger('setSearchParams', {
+      range: event.target.value
+    });
+  },
+
+  render: function () {
+    return (
+      <label className="lb-range-select" key="lb-range-select">
+        <span>Range:</span>
+        <select name="range" value={this.state.value} onChange={this.handleChange}>
+          <option value="1610">1 mile</option>
+          <option value="8047">5 miles</option>
+          <option value="16094">10 miles</option>
+          <option value="24140">15 miles</option>
+        </select>
+      </label>
+    );
+  }
+});
+
+})();

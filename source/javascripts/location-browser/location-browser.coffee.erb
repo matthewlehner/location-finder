@@ -5,34 +5,47 @@
 #= require_tree ./routers
 
 $ ->
-  urlBuilder = (parentParams, searchParams) ->
-    path = switch
-      when parentParams.url? then parentParams.url.replace("/locations", "")
-      when parentParams.id?
-        parent = Sparkle.locationFinder.locations.get(parentParams.id)
-        parent.get('url').replace("/locations", "")
-      else ""
+  container = document.getElementById('location-browser')
+  return false unless container?
 
-    return path
+  locations = new Sparkle.Collections.Locations
+  locations.fetch().done ->
+    new Sparkle.Routers.LocationFinder(container, locations)
+
+    Backbone.history.start
+      # pushState: true
+      root: "/locations"
 
   window.locationFinder = locationFinder =
-    updateUrl: (params) ->
-      {parentParams, searchParams} = params
-      url = urlBuilder(parentParams, searchParams)
+    updateUrl: (parentParams) ->
+      path = switch
+        when parentParams?.url? then parentParams.url
+        when parentParams?.hasOwnProperty("id")
+          parentUrl = locations.get(parentParams.id)?.get('url') || ""
+        else
+          locations.currentParent?.get('url') || ""
 
-      Backbone.history.navigate(url, true);
+      path = path.replace("/locations", "")
+
+      Backbone.history.navigate(path, true);
+
+    scopeSearch: (searchParams) ->
+      {lat, lng, range} = searchParams
+      params = switch
+        when lat?, lng?
+          latLng: new google?.maps.LatLng lat, lng
+          range: range || 8047 # locked to 5 miles right now
+        when range?
+          _.extend(locations.searchParams, {range: range})
+
+      locations.changeSearchParams params
 
   _.extend(locationFinder, Backbone.Events)
 
   locationFinder.on
     'changeParent': (parentParams) ->
-      @updateUrl(parentParams: parentParams)
+      @updateUrl(parentParams)
 
     'setSearchParams': (searchParams) ->
-      @updateUrl(searchParams: searchParams)
+      @scopeSearch(searchParams)
 
-  Sparkle.locationFinder = new Sparkle.Routers.LocationFinder()
-  Backbone.history.start
-    # pushState: true
-    silent: false
-    root: "/locations"

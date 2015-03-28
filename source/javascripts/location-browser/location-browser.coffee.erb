@@ -31,7 +31,9 @@ $ ->
       Backbone.history.navigate(path, true);
 
     scopeSearch: (searchParams) ->
-      {lat, lng, range} = searchParams
+      if searchParams?
+        {lat, lng, range} = searchParams
+
       params = switch
         when lat?, lng?
           latLng: new google?.maps.LatLng lat, lng

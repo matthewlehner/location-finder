@@ -295,6 +295,20 @@ $topNavBgColor: #B8E9FC;
   label {
     @include transition(opacity .1s ease-out);
     padding: 10px 20px;
+    position: relative;
+  }
+
+  .form-control.clear {
+    @include linear-gradient(to right, rgba(255,255,255,0) 0%, rgb(255,255,255) 50%);
+    color: $bodyLinkColor;
+    font-size: 26px;
+    height: 30px;
+    padding-right: 10px;
+    position: absolute;
+    right: 10px;
+    text-align: right;
+    top: 12px;
+    width: 60px;
   }
 }
 

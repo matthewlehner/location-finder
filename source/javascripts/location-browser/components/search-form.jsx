@@ -5,7 +5,9 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 window.LocationSearchForm = React.createClass({
   getInitialState: function () {
-    return {height: "auto"}
+    return {
+      height: "auto",
+    }
   },
 
   componentDidMount: function () {
@@ -54,11 +56,48 @@ window.LocationSearchForm = React.createClass({
         <label>
           <span>Near:</span>
           <InputWithPlaceAutocomplete/>
+          <InputClear/>
         </label>
         <ReactCSSTransitionGroup transitionName="lb-range-select"
                                  component={RangeSelect}/>
       </form>
     );
+  }
+});
+
+var InputClear = React.createClass({
+  getInitialState: function () {
+    return {
+      hidden: true
+    }
+  },
+
+  componentDidMount: function () {
+    var self = this;
+    locationFinder.collection.on("changeScope", function () {
+      if (locationFinder.collection.searchParams == undefined) {
+        self.setState({hidden: true});
+      } else {
+        self.setState({hidden: false});
+      }
+    });
+  },
+
+  render: function () {
+    if ( this.state.hidden ) {
+      return null;
+    } else {
+      return (
+        <span className="form-control clear" onClick={this.handleClick}>
+          &times;
+        </span>
+      );
+    }
+  },
+
+  handleClick: function (event) {
+    locationFinder.trigger('setSearchParams');
+    debugger;
   }
 });
 

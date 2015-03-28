@@ -70,6 +70,12 @@ var InputWithPlaceAutocomplete = React.createClass({
     Sparkle.GoogleMaps.onMapsLoaded(function () {
       google.maps.event.addListener(self.autocomplete, 'place_changed', self.search);
     });
+
+    locationFinder.collection.on("changeScope", function () {
+      if (locationFinder.collection.searchParams == undefined) {
+        React.findDOMNode(self).value = "";
+      }
+    });
   },
 
   search: function () {

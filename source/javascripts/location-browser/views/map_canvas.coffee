@@ -7,20 +7,15 @@ class Sparkle.Views.MapCanvas extends Backbone.View
 
   initializeMap: =>
     @mapObject = new google.maps.Map @el, Sparkle.GoogleMaps.defaultMapOptions()
-    @bounds = new google.maps.LatLngBounds()
     @markers = {}
-    @listenTo @collection, 'reset changeScope', @resetAndCenter
+    @listenTo @collection, 'reset changeScope', @resetMarkers
     @listenTo @collection, 'selectLocation', @focusMarker
-    @resetMarkers()
-
-  resetAndCenter: =>
     @resetMarkers()
 
   resetMarkers: (center = null) ->
     @deleteMarkers()
     @bounds = new google.maps.LatLngBounds()
     @createMarkers(@collection.scopedLocationsWithAddresses())
-
     @setZoom()
 
   deleteMarkers: ->
@@ -32,7 +27,8 @@ class Sparkle.Views.MapCanvas extends Backbone.View
       marker.setMap(null)
 
   setZoom: ->
-    @mapObject.fitBounds @bounds
+    unless @bounds.getCenter().lat() is 0 and @bounds.getCenter().lng() is -180
+      @mapObject.fitBounds @bounds
 
   createMarkers: (locations) ->
     for location in locations
@@ -41,13 +37,12 @@ class Sparkle.Views.MapCanvas extends Backbone.View
 
         latLng = new google.maps.LatLng address['lat'], address['lng']
         marker = new google.maps.Marker
-          position: latLng 
+          position: latLng
           map: @mapObject
           title: location.get('name')
         @markers[address['id']] = marker
         @createInfoWindow(location, address, marker)
         @bounds.extend latLng
-
 
   createInfoWindow: (location, address, marker) ->
     content = JST['location-browser/info-window'](location.toJSON())

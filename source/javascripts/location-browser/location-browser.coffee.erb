@@ -17,6 +17,7 @@ $ ->
       root: "/locations"
 
   window.locationFinder = locationFinder =
+    collection: locations,
     updateUrl: (parentParams) ->
       path = switch
         when parentParams?.url? then parentParams.url
@@ -48,4 +49,3 @@ $ ->
 
     'setSearchParams': (searchParams) ->
       @scopeSearch(searchParams)
-

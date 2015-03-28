@@ -16,6 +16,8 @@ class Sparkle.Collections.Locations extends Backbone.Collection
     @resetScope()
 
   changeSearchParams: (@searchParams) ->
+    @searchScope = @filter (location) ->
+      location.withinDistance()
     @resetScope()
 
   currentList: ->

@@ -21,13 +21,16 @@ class Sparkle.Routers.LocationFinder extends Backbone.Router
       root: @locations.currentParent?.toJSON()
       locations: @locations.currentList().toJSON()
 
-    @locationBrowser = React.render(
-      React.createElement(LocationBrowser, props),
-      @container.firstElementChild
-    )
+    if @locations.scopedLocationsWithAddresses().length > 0
+      @locationBrowser = React.render(
+        React.createElement LocationBrowser, props
+        @container.firstElementChild)
+
+    else
+      @noResults()
 
   noResults: =>
-    @noResults = new Sparkle.Views.LocationNoResults
+    noResults = new Sparkle.Views.LocationNoResults
       collection: @locations
 
-    @$container.append @noResults.render().el
+    @container.appendChild noResults.render().el

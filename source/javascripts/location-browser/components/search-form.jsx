@@ -4,55 +4,18 @@
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 window.LocationSearchForm = React.createClass({
-  getInitialState: function () {
-    return {
-      height: "auto",
-    }
-  },
-
-  componentDidMount: function () {
-    if (this.props.hidden) {
-      this.setState({
-        height: "0"
-      });
-    } else {
-      var el = React.findDOMNode(this)
-      this.originalElHeight = el.offsetHeight;
-      this.setState({
-        height: this.originalElHeight
-      });
-    }
-  },
-
-  componentWillReceiveProps: function (nextProps) {
-    if (nextProps.hidden) {
-      this.setState({
-        height: "0"
-      });
-    } else {
-      this.setState({
-        height: this.originalElHeight
-      });
-    }
-  },
-
   handleSubmit: function (e) {
     e.preventDefault();
   },
 
   render: function () {
-    var formStyle = {
-      height: this.state.height,
-      borderBottomColor: this.state.borderBottomColor
-    }
-
     var className = "lb-search"
     if (this.props.hidden) {
       className += " hidden";
     }
 
     return (
-      <form style={formStyle} className={className} onSubmit={this.handleSubmit}>
+      <form className={className} onSubmit={this.handleSubmit}>
         <label>
           <span>Near:</span>
           <InputWithPlaceAutocomplete/>
@@ -75,7 +38,8 @@ var InputClear = React.createClass({
   componentDidMount: function () {
     var self = this;
     locationFinder.collection.on("changeScope", function () {
-      if (locationFinder.collection.searchParams == undefined) {
+      var params = locationFinder.collection.searchParams;
+      if (params == undefined || _.isEmpty(params)) {
         self.setState({hidden: true});
       } else {
         self.setState({hidden: false});
@@ -97,7 +61,6 @@ var InputClear = React.createClass({
 
   handleClick: function (event) {
     locationFinder.trigger('setSearchParams');
-    debugger;
   }
 });
 
@@ -111,7 +74,8 @@ var InputWithPlaceAutocomplete = React.createClass({
     });
 
     locationFinder.collection.on("changeScope", function () {
-      if (locationFinder.collection.searchParams == undefined) {
+      var params = locationFinder.collection.searchParams;
+      if (params == undefined || _.isEmpty(params)) {
         React.findDOMNode(self).value = "";
       }
     });
@@ -142,7 +106,22 @@ var InputWithPlaceAutocomplete = React.createClass({
 
 var RangeSelect = React.createClass({
   getInitialState: function () {
-    return { value: "8047" }
+    return {
+      value: "8047",
+      hidden: true
+    }
+  },
+
+  componentDidMount: function () {
+    var self = this;
+    locationFinder.collection.on("changeScope", function () {
+      var params = locationFinder.collection.searchParams;
+      if (params == undefined || _.isEmpty(params)) {
+        self.setState({hidden: true});
+      } else {
+        self.setState({hidden: false});
+      }
+    });
   },
 
   handleChange: function (event) {
@@ -153,17 +132,23 @@ var RangeSelect = React.createClass({
   },
 
   render: function () {
-    return (
-      <label className="lb-range-select" key="lb-range-select">
-        <span>Range:</span>
-        <select name="range" value={this.state.value} onChange={this.handleChange}>
-          <option value="8047">5 miles</option>
-          <option value="16094">10 miles</option>
-          <option value="24140">15 miles</option>
-          <option value="32187">20 miles</option>
-        </select>
-      </label>
-    );
+    if (this.state.hidden) {
+      return (
+        <label className="lb-range-select hidden" key="lb-range-select-hidden"></label>
+      );
+    } else {
+      return (
+        <label className="lb-range-select" key="lb-range-select">
+          <span>Range:</span>
+          <select name="range" value={this.state.value} onChange={this.handleChange}>
+            <option value="8047">5 miles</option>
+            <option value="16094">10 miles</option>
+            <option value="24140">15 miles</option>
+            <option value="32187">20 miles</option>
+          </select>
+        </label>
+      );
+    }
   }
 });
 
